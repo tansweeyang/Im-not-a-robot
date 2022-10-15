@@ -4,6 +4,9 @@
 # Log file
 *.log
 
+# env
+.env
+
 # BlueJ files
 *.ctxt
 
@@ -40,5 +43,4 @@ buildNumber.properties
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 
-# env
-*.env
+src/test/*

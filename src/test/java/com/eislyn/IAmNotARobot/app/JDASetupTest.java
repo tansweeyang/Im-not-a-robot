@@ -16,7 +16,7 @@ public class JDASetupTest {
 		JDASetup jdaSetup = JDASetup.getInstance();
 		String keyName = "DISCORD_JDA_KEY";
 		
-		String expectedToken = "OTc4NjQ5NDA0ODE2OTE2NTIx.GnPeRM.EHoMGL9B4Pv7vdkAayMT4wDAkdi6ZdBTXkRz10";
+		String expectedToken = "OTc4NjQ5NDA0ODE2OTE2NTIx.GM5Ulk.1XirUx93eunZtE6N4gp30c2QktTgF5_Dn-UfDo";
 		String actualToken = jdaSetup.getJDAToken(keyName);
 		
 		assertEquals(expectedToken, actualToken);
