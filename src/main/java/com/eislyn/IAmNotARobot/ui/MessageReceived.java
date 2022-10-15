@@ -44,25 +44,37 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 		}
 		else if(args[0].equalsIgnoreCase(prefix + "ts")) {
 			String langTo = args[1];
-			String text = "";
 			
 			if(args.length < 3) {
 				sendMessage(event, "Invalid translate command. Type ``e!ts targetLanguage message to translate.``");
 				return;
 			}
 			else {
-				translate(event, args, langTo, text);
+				translate(event, args, langTo);
 				return;
 			}
 		}
 	}
 
+	/**
+	 * Communicates with controller to print out help menu.
+	 * @param event MessageReceivedEvent
+	 * @param guildName Discord guild name
+	 */
 	private void help(MessageReceivedEvent event, String guildName) {
 		EmbedBuilder embedBuilder = controller.help(guildName);
 		sendEmbedMessage(event, embedBuilder);
 	}
 	
-	private void translate(MessageReceivedEvent event, String[] args, String langTo, String text) {
+	/**
+	 * Combine array of input to text and communicates with controller to translate the text.
+	 * @param event MessageReceivedEvent
+	 * @param args array of input after the prefix and command
+	 * @param langTo Target language
+	 * @param text Text to translate
+	 */
+	private void translate(MessageReceivedEvent event, String[] args, String langTo) {
+		String text = null;
 		for(int i=2; i<args.length; i++) {
 			text += args[i] + " ";
 		}
