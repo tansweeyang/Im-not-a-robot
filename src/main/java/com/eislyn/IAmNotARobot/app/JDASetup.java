@@ -1,7 +1,7 @@
 package com.eislyn.IAmNotARobot.app;
 
-import com.eislyn.IAmNotARobot.dataAccessAPI.TranslatorAPI;
 import com.eislyn.IAmNotARobot.dataService.Controller;
+import com.eislyn.IAmNotARobot.domain.Dictionary;
 import com.eislyn.IAmNotARobot.domain.EmbedTemplate;
 import com.eislyn.IAmNotARobot.domain.HelpEmbed;
 import com.eislyn.IAmNotARobot.domain.Translator;
@@ -102,9 +102,9 @@ public class JDASetup {
 		jdaBuilder.setMemberCachePolicy(MemberCachePolicy.ALL);
 		
 		EmbedTemplate helpEmbed = new HelpEmbed();
-		TranslatorAPI translatorAPI = new TranslatorAPI();
-		Translator translator = new Translator(translatorAPI);
-		Controller controller = new Controller(helpEmbed, translator);
+		Translator translator = new Translator();
+		Dictionary dictionary = new Dictionary();
+		Controller controller = new Controller(helpEmbed, translator, dictionary);
 		jdaBuilder.addEventListeners(new MessageReceived(controller, PREFIX));
 		jdaBuilder.addEventListeners(new GuildMemberJoin());
 		jdaBuilder.addEventListeners(new GuildMemberRemove());

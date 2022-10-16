@@ -1,8 +1,9 @@
 package com.eislyn.IAmNotARobot.domain;
 
-import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
-import com.eislyn.IAmNotARobot.dataAccessAPI.TranslatorAPI;
+import com.eislyn.IAmNotARobot.dataAccessAPI.HttpConnector;
 
 /**
  * Setups and stores the information necessary for Translator API. 
@@ -10,19 +11,9 @@ import com.eislyn.IAmNotARobot.dataAccessAPI.TranslatorAPI;
  * @since 15/10/2022
  */
 public class Translator {
-	private TranslatorAPI translatorAPI;
-	
 	private String langFrom = "";
 	private String langTo;
 	private String text;
-	
-	/**
-	 * Pass in the parameters needed(owns data access layer) from setup class, don't create it here.
-	 * @param translatorAPI
-	 */
-	public Translator(TranslatorAPI translatorAPI) {
-		this.translatorAPI = translatorAPI;
-	}
 	
 	public void setLangTo(String langTo) {
 		this.langTo = langTo;
@@ -33,17 +24,17 @@ public class Translator {
 	}
 	
 	/**
-	 * Sends in the data to translatorAPI and get the response
-	 * @return response Translated text
+	 * Creates an url string and get the response from HttpConnector
+	 * @return response Response from api
 	 */
 	public String translate() {
-		String response = null;
+		String urlStr = "";
 		try {
-			response = translatorAPI.getResponse(langFrom, langTo, text);
-		} catch (IOException e) {
-			e.printStackTrace();
+			urlStr = "https://script.google.com/macros/s/AKfycbxA9Hn4G2jFfHJbzjD91Yo64rZAJ19i8FHSQLtTIqOBTUWEabXItuS_YSkLsE9qddka/exec" + "?q=" + URLEncoder.encode(text, "UTF-8") + "&target=" + langTo +"&source=" + langFrom;
+		} catch (UnsupportedEncodingException e) {
+			return "Unsupported encoding";
 		}
-		return response;
+		return HttpConnector.getResponse(urlStr);
 	}
 
 }

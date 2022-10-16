@@ -28,7 +28,10 @@ public abstract class EmbedTemplate {
 		return embedBuilder;
 	}
 
-	public abstract void setAuthor(String authorName) ;
+	private void setAuthor(String authorName) {
+		embedBuilder.setAuthor(authorName);
+	}
+	
 	public abstract void setTitle();
 	public abstract void setDescription();
 	public abstract void addField();

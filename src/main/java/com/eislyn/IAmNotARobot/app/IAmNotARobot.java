@@ -24,7 +24,7 @@ public class IAmNotARobot {
 		jdaSetup.setupJDA(token);
 		JDA jda = jdaSetup.getJda();
 		
-		System.out.println("Type q to stop appplication: ");
+		System.out.print("Type q to stop appplication: ");
 		Scanner scanner = new Scanner(System.in);
 		String input = scanner.next();
 	

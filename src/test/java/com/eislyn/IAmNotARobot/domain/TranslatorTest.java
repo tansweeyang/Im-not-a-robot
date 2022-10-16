@@ -5,8 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.eislyn.IAmNotARobot.dataAccessAPI.TranslatorAPI;
-
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 
@@ -15,8 +13,7 @@ public class TranslatorTest {
 	@Test
 	@Parameters(method = "paramTestTranslate")
 	public void testTranslate(String langTo, String text, String expectedResult) {
-		TranslatorAPI translatorAPI = new TranslatorAPI();
-		Translator translator = new Translator(translatorAPI);
+		Translator translator = new Translator();
 		translator.setLangTo(langTo);
 		translator.setText(text);
 		

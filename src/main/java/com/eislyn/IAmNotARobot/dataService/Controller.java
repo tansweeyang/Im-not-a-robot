@@ -1,6 +1,11 @@
 package com.eislyn.IAmNotARobot.dataService;
 
+import java.util.List;
+
+import com.eislyn.IAmNotARobot.domain.Dictionary;
+import com.eislyn.IAmNotARobot.domain.DictionaryEmbed;
 import com.eislyn.IAmNotARobot.domain.EmbedTemplate;
+import com.eislyn.IAmNotARobot.domain.PartOfSpeech;
 import com.eislyn.IAmNotARobot.domain.Translator;
 
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -13,27 +18,29 @@ import net.dv8tion.jda.api.EmbedBuilder;
 public class Controller {
 	private EmbedTemplate embedTemplate;
 	private Translator translator;
+	private Dictionary dictionary;
 	
 	/**
 	 * Pass in the parameters needed(owns business layer) from setup class, don't create it here.
 	 * @param embedTemplate
 	 * @param translator
 	 */
-	public Controller(EmbedTemplate embedTemplate, Translator translator) {
+	public Controller(EmbedTemplate embedTemplate, Translator translator, Dictionary dictionary) {
 		this.embedTemplate = embedTemplate;
 		this.translator = translator;
+		this.dictionary = dictionary;
 	}
 	
 	/**
 	 * Directs the EmbedTemplate class to create a HelpEmbed.
-	 * @param title Discord guild name
+	 * @param guildName Discord guild name
 	 * @return embedBuilder helpEmbed
 	 */
-	public EmbedBuilder help(String title) {
-		if(title == null || title == "")
+	public EmbedBuilder help(String guildName) {
+		if(guildName == null || guildName == "")
 			throw new IllegalArgumentException();
 		
-		EmbedBuilder embedBuilder = embedTemplate.buildEmbed(title);
+		EmbedBuilder embedBuilder = embedTemplate.buildEmbed(guildName);
 		return embedBuilder;
 	}
 	
@@ -51,5 +58,24 @@ public class Controller {
 		translator.setText(text);
 		String response = translator.translate();
 		return response;
+	}
+	
+	/**
+	 * Directs the Dictionary class to get definitions.
+	 * @param guildName Discord guild name
+	 * @param word Word to get definition
+	 * @return dictionaryEmbedBuilder Dictionary embed
+	 */
+	public EmbedBuilder dictionary(String guildName, String word) {
+		if(guildName == null || guildName == "" || word == null || word == "") {
+			throw new IllegalArgumentException();
+		}
+		
+		dictionary.setWord(word);
+		List<PartOfSpeech> partOfSpeechList = dictionary.getResponseAsListOfClasses();
+		EmbedTemplate dictionaryEmbed = new DictionaryEmbed(partOfSpeechList, word);
+		EmbedBuilder dictionaryEmbedBuilder = dictionaryEmbed.buildEmbed(guildName);
+		
+		return dictionaryEmbedBuilder;
 	}
 }

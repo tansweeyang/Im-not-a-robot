@@ -2,6 +2,8 @@ package com.eislyn.IAmNotARobot.ui;
 
 import java.util.EventListener;
 
+import org.json.JSONException;
+
 import com.eislyn.IAmNotARobot.dataService.Controller;
 
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -54,6 +56,26 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 				return;
 			}
 		}
+		else if(args[0].equalsIgnoreCase(prefix + "d")) {
+			if(args.length < 2 || args.length > 2) {
+				sendMessage(event, "Enter a word to get its definition. ``e!d word``.");
+				return;
+			}
+			else {
+				String word = args[1];
+				
+				EmbedBuilder dictionaryEmbedBuilder;
+				try {
+					dictionaryEmbedBuilder = dictionary(event.getGuild().getName(), word);
+				}catch (JSONException e) {
+					sendMessage(event,  "Ops, cannot find this word in the dictionary!");
+					return;
+				}
+				
+				sendEmbedMessage(event, dictionaryEmbedBuilder);
+				return;
+			}
+		}
 	}
 
 	/**
@@ -74,22 +96,50 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 	 * @param text Text to translate
 	 */
 	private void translate(MessageReceivedEvent event, String[] args, String langTo) {
-		String text = null;
+		String text = "";
 		for(int i=2; i<args.length; i++) {
 			text += args[i] + " ";
 		}
 		String response = controller.translate(langTo, text);
-		sendMessage(event, "Translation result: " + response);
+		
+		if(response.contains("<!DOCTYPE html>")) {
+			sendMessage(event, "Invalid target language. See https://cloud.google.com/translate/docs/languages for the full list of supported languages.");
+		}
+		else {
+			sendMessage(event, "Translation result: " + response);
+		}
+	}
+	
+	/**
+	 * Get a dictionary embed from the given guildName and word
+	 * @param guildName Discord guild name
+	 * @param word word to get definitions
+	 * @return dictionaryEmbed a dictionary Embed
+	 */
+	private EmbedBuilder dictionary(String guildName, String word) {
+		return controller.dictionary(guildName, word);
 	}
 
+	/**
+	 * sends a message in discord event channel with the message given.
+	 * @param event MessageReceivedEvent
+	 * @param message message to send
+	 */
 	private void sendMessage(MessageReceivedEvent event, String message) {
 		event.getChannel().sendTyping().queue();
 		event.getChannel().sendMessage(message).queue();
+		return;
 	}
 
+	/**
+	 * Sends an embed in discord event channel with the embedBuilder given.
+	 * @param event MessageReceivedEvent
+	 * @param embed embedBuilder to send
+	 */
 	private void sendEmbedMessage(MessageReceivedEvent event, EmbedBuilder embed) {
 		event.getChannel().sendTyping().queue();
 		event.getChannel().sendMessageEmbeds(embed.build()).queue();
+		return;
 	}
 
 }
