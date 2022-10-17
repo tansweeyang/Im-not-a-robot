@@ -36,12 +36,11 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 		if (event.getAuthor().isBot() == true) {
 			return;
 		}
-
 		else if (args[0].equalsIgnoreCase(prefix + "help")) {
-			if (args.length > 1)
-				sendMessage(event, "Invalid help command. Type ``e!help`` to get the help menu.");
-			else {
+			if (args.length < 2)
 				help(event, event.getGuild().getName());
+			else {
+				sendMessage(event, "Invalid command. Type ``e!help`` to get the help menu.");
 			}
 		}
 		else if(args[0].equalsIgnoreCase(prefix + "ts")) {
@@ -57,8 +56,13 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 			}
 		}
 		else if(args[0].equalsIgnoreCase(prefix + "helpts")) {
-			sendMessage(event, "See https://cloud.google.com/translate/docs/languages for the full list of supported languages.");
-			return;
+			if(args.length < 2) {
+				sendMessage(event, "See https://cloud.google.com/translate/docs/languages for the full list of supported languages.");
+				return;
+			}
+			else {
+				sendMessage(event, "Invalid command. Type ``e!help`` to get the help menu.");
+			}
 		}
 		else if(args[0].equalsIgnoreCase(prefix + "d")) {
 			if(args.length < 2 || args.length > 2) {
@@ -75,7 +79,6 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 					sendMessage(event,  "Ops, cannot find this word in the dictionary!");
 					return;
 				}
-				
 				sendEmbedMessage(event, dictionaryEmbedBuilder);
 				return;
 			}
