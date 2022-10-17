@@ -37,10 +37,13 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 			return;
 		}
 		else if (args[0].equalsIgnoreCase(prefix + "help")) {
-			if (args.length < 2)
+			if (args.length < 2) {
 				help(event, event.getGuild().getName());
+				return;
+			}
 			else {
 				sendMessage(event, "Invalid command. Type ``e!help`` to get the help menu.");
+				return;
 			}
 		}
 		else if(args[0].equalsIgnoreCase(prefix + "ts")) {
@@ -62,6 +65,7 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 			}
 			else {
 				sendMessage(event, "Invalid command. Type ``e!help`` to get the help menu.");
+				return;
 			}
 		}
 		else if(args[0].equalsIgnoreCase(prefix + "d")) {
@@ -85,6 +89,7 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 		}
 		else if(args[0].contains("e!") || args[0].contains("E!")) {
 			sendMessage(event, "Invalid command. Type ``e!help`` to get the help menu.");
+			return;
 		}
 	}
 
@@ -96,6 +101,7 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 	private void help(MessageReceivedEvent event, String guildName) {
 		EmbedBuilder embedBuilder = controller.help(guildName);
 		sendEmbedMessage(event, embedBuilder);
+		return;
 	}
 	
 	/**
@@ -114,9 +120,11 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 		
 		if(response.contains("<!DOCTYPE html>")) {
 			sendMessage(event, "Invalid target language. See https://cloud.google.com/translate/docs/languages for the full list of supported languages.");
+			return;
 		}
 		else {
 			sendMessage(event, "Translation result: " + response);
+			return;
 		}
 	}
 	
