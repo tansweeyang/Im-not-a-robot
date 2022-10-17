@@ -10,6 +10,7 @@ import junitparams.Parameters;
 
 @RunWith(JUnitParamsRunner.class)
 public class TranslatorTest {
+	
 	@Test
 	@Parameters(method = "paramTestTranslate")
 	public void testTranslate(String langTo, String text, String expectedResult) {

@@ -5,12 +5,15 @@ import java.net.URLEncoder;
 
 import com.eislyn.IAmNotARobot.dataAccessAPI.HttpConnector;
 
+import io.github.cdimascio.dotenv.Dotenv;
+
 /**
- * Setups and stores the information necessary for Translator API, Set langTo and Text first before using the translate() method.
+ * Setups and stores the information necessary for Translator API, set deploymentKeyname, langTo and Text first before using the translate() method.
  * @author Eislyn
  * @since 15/10/2022
  */
 public class Translator {
+	private final static String deploymentKeyName = "GOOGLE_SCRIPT_TRANSLATOR_DEPLOYMENT_ID";
 	private String langFrom = "";
 	private String langTo;
 	private String text;
@@ -24,13 +27,27 @@ public class Translator {
 	}
 	
 	/**
-	 * Creates an url string and get the response from HttpConnector
-	 * @return response Response from api
+	 * Gets the deploymentKey from the keyName
+	 * @return deploymentKey
+	 */
+	private String getDeploymentKey() {
+		if(deploymentKeyName == null || deploymentKeyName == "") {
+			throw new IllegalArgumentException();
+		}
+		Dotenv dotenv = Dotenv.load();
+		return dotenv.get(deploymentKeyName);
+	}
+	
+	/**
+	 * Creates an URL string and get the response from HttpConnector
+	 * @return response Response from API
 	 */
 	public String translate() {
+		String deploymentKey = getDeploymentKey();
 		String urlStr = "";
 		try {
-			urlStr = "https://script.google.com/macros/s/AKfycbxA9Hn4G2jFfHJbzjD91Yo64rZAJ19i8FHSQLtTIqOBTUWEabXItuS_YSkLsE9qddka/exec" + "?q=" + URLEncoder.encode(text, "UTF-8") + "&target=" + langTo +"&source=" + langFrom;
+			//API: Google script Translator class
+			urlStr = "https://script.google.com/macros/s/" + deploymentKey + "/exec" + "?q=" + URLEncoder.encode(text, "UTF-8") + "&target=" + langTo +"&source=" + langFrom;
 		} catch (UnsupportedEncodingException e) {
 			return "Unsupported encoding";
 		}
