@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Stores the dictionary response informations as a class. 
+ * Stores the definition list of one part of speech of the word. 
  * @author Eislyn
  * @since 17/10/2022
  */

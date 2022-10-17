@@ -19,7 +19,7 @@ public class DictionaryTest {
 		String actualResult = "";
 		
 		dictionary.setWord("multithreading");
-		List<PartOfSpeech> partOfSpeechList = dictionary.getResponseAsListOfClasses();
+		List<PartOfSpeech> partOfSpeechList = dictionary.getResponseAsPartOfSpeechList();
 		for(int i=0; i<partOfSpeechList.size(); i++) {
 			actualResult += "Part of speech: " + partOfSpeechList.get(i).getPartOfSpeech();
 			List<String> definitionList = partOfSpeechList.get(i).getDefinitionList();
@@ -40,7 +40,7 @@ public class DictionaryTest {
 	public void testInvalidArgumentGetResponseAsListOfClasses(String word) {
 		Dictionary dictionary = new Dictionary();
 		dictionary.setWord(word);
-		dictionary.getResponseAsListOfClasses();
+		dictionary.getResponseAsPartOfSpeechList();
 	}
 	
 	@SuppressWarnings("unused")
@@ -55,7 +55,7 @@ public class DictionaryTest {
 	public void testJsonExceptionGetResponseAsListOfClasses() {
 		Dictionary dictionary = new Dictionary();
 		dictionary.setWord("asdsajdksad");
-		dictionary.getResponseAsListOfClasses();
+		dictionary.getResponseAsPartOfSpeechList();
 	}
 
 }

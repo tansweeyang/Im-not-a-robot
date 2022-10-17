@@ -72,7 +72,7 @@ public class Controller {
 		}
 		
 		dictionary.setWord(word);
-		List<PartOfSpeech> partOfSpeechList = dictionary.getResponseAsListOfClasses();
+		List<PartOfSpeech> partOfSpeechList = dictionary.getResponseAsPartOfSpeechList();
 		EmbedTemplate dictionaryEmbed = new DictionaryEmbed(partOfSpeechList, word);
 		EmbedBuilder dictionaryEmbedBuilder = dictionaryEmbed.buildEmbed(guildName);
 		
