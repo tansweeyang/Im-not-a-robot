@@ -56,6 +56,10 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 				return;
 			}
 		}
+		else if(args[0].equalsIgnoreCase(prefix + "helpts")) {
+			sendMessage(event, "See https://cloud.google.com/translate/docs/languages for the full list of supported languages.");
+			return;
+		}
 		else if(args[0].equalsIgnoreCase(prefix + "d")) {
 			if(args.length < 2 || args.length > 2) {
 				sendMessage(event, "Enter a word to get its definition. ``e!d word``.");
