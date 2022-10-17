@@ -83,6 +83,9 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 				return;
 			}
 		}
+		else if(args[0].contains("e!") || args[0].contains("E!")) {
+			sendMessage(event, "Invalid command. Type ``e!help`` to get the help menu.");
+		}
 	}
 
 	/**
