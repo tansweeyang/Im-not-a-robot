@@ -10,7 +10,7 @@ import com.eislyn.IAmNotARobot.dataAccessAPI.HttpConnector;
 
 /**
  * Get the response from HttpConnector class and map it into a list of PartOfSpeech objects,
- * when using, setWord() first before doing getResponseAsListOfClasses().
+ * setWord() first before using getResponseAsListOfClasses().
  * @author Eislyn
  * @since 16/10/2022
  */

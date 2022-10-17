@@ -6,7 +6,7 @@ import java.net.URLEncoder;
 import com.eislyn.IAmNotARobot.dataAccessAPI.HttpConnector;
 
 /**
- * Setups and stores the information necessary for Translator API. 
+ * Setups and stores the information necessary for Translator API, Set langTo and Text first before using the translate() method.
  * @author Eislyn
  * @since 15/10/2022
  */
