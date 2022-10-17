@@ -18,10 +18,8 @@ public class IAmNotARobot {
 	 */
 	public static void main(String[] args) throws InterruptedException {
 		JDASetup jdaSetup = JDASetup.getInstance();
-		String keyName = "DISCORD_JDA_KEY";
-		String token = jdaSetup.getJDAToken(keyName);
+		jdaSetup.setupJDA();
 		
-		jdaSetup.setupJDA(token);
 		JDA jda = jdaSetup.getJda();
 		
 		System.out.print("Type q to stop appplication: ");

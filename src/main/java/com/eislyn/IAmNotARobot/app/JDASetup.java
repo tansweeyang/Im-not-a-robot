@@ -24,10 +24,10 @@ import net.dv8tion.jda.api.utils.cache.CacheFlag;
  * @since 15/10/2022
  */
 public class JDASetup {
+	
 	private static JDASetup instance;
-	private String token;
+	private static final String jdaKeyName = "DISCORD_JDA_KEY";
 	private static final String PREFIX = "e!";
-
 	private JDA jda;
 
 	/**
@@ -57,17 +57,13 @@ public class JDASetup {
 	 * @param JDAKeyName
 	 * @return
 	 */
-	public String getJDAToken(String JDAKeyName) {
-		if(JDAKeyName == null || JDAKeyName == "") {
+	private String getJDAToken() {
+		if(jdaKeyName == null || jdaKeyName == "") {
 			throw new IllegalArgumentException();
 		}
 		
 		Dotenv dotenv = Dotenv.load();
-		String token = dotenv.get(JDAKeyName);
-		return token;
-	}
-
-	public String getToken() {
+		String token = dotenv.get(jdaKeyName);
 		return token;
 	}
 
@@ -77,7 +73,9 @@ public class JDASetup {
 	 * @return status Discord JDA connection status, will wait till STATUS.CONNECTED before returning 
 	 * @throws InterruptedException
 	 */
-	public Status setupJDA(String token) throws InterruptedException {
+	public Status setupJDA() throws InterruptedException {
+		String token = getJDAToken();
+		
 		if(token == null || token == "") {
 			throw new IllegalArgumentException();
 		}
