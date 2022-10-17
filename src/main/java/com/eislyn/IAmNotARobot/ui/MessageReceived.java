@@ -75,17 +75,18 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 			}
 			else {
 				String word = args[1];
-				
-				EmbedBuilder dictionaryEmbedBuilder;
 				try {
-					dictionaryEmbedBuilder = dictionary(event.getGuild().getName(), word);
+					dictionary(event, event.getGuild().getName(), word);
+					return;
 				}catch (JSONException e) {
 					sendMessage(event,  "Ops, cannot find this word in the dictionary!");
 					return;
 				}
-				sendEmbedMessage(event, dictionaryEmbedBuilder);
-				return;
 			}
+		}
+		else if(args[0].equalsIgnoreCase(prefix + "d")) {
+			
+			currencyExchange(event, baseCurrency, targetCurrency, amountToConvert);
 		}
 		else if(args[0].contains("e!") || args[0].contains("E!")) {
 			sendMessage(event, "Invalid command. Type ``e!help`` to get the help menu.");
@@ -134,8 +135,15 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 	 * @param word word to get definitions
 	 * @return dictionaryEmbed a dictionary Embed
 	 */
-	private EmbedBuilder dictionary(String guildName, String word) {
-		return controller.dictionary(guildName, word);
+	private void dictionary(MessageReceivedEvent event, String guildName, String word) {
+		sendEmbedMessage(event, controller.dictionary(guildName, word));
+	}
+	
+	private void currencyExchange(MessageReceivedEvent event, String baseCurrency, String targetCurrency, double amountToConvert) {
+		String guildName = event.getGuild().getName();
+		EmbedBuilder currencyExchangeEmbedBuilder = controller.exchangeCurrency(guildName, baseCurrency, targetCurrency, amountToConvert);
+		sendEmbedMessage(event, currencyExchangeEmbedBuilder);
+		return;
 	}
 
 	/**

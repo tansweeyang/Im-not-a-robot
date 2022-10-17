@@ -1,6 +1,7 @@
 package com.eislyn.IAmNotARobot.app;
 
 import com.eislyn.IAmNotARobot.dataService.Controller;
+import com.eislyn.IAmNotARobot.domain.CurrencyExchange;
 import com.eislyn.IAmNotARobot.domain.Dictionary;
 import com.eislyn.IAmNotARobot.domain.EmbedTemplate;
 import com.eislyn.IAmNotARobot.domain.HelpEmbed;
@@ -102,7 +103,8 @@ public class JDASetup {
 		EmbedTemplate helpEmbed = new HelpEmbed();
 		Translator translator = new Translator();
 		Dictionary dictionary = new Dictionary();
-		Controller controller = new Controller(helpEmbed, translator, dictionary);
+		CurrencyExchange currencyExchange = new CurrencyExchange();
+		Controller controller = new Controller(helpEmbed, translator, dictionary, currencyExchange);
 		jdaBuilder.addEventListeners(new MessageReceived(controller, PREFIX));
 		jdaBuilder.addEventListeners(new GuildMemberJoin());
 		jdaBuilder.addEventListeners(new GuildMemberRemove());

@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import com.eislyn.IAmNotARobot.domain.CurrencyExchange;
 import com.eislyn.IAmNotARobot.domain.Dictionary;
 import com.eislyn.IAmNotARobot.domain.EmbedTemplate;
 import com.eislyn.IAmNotARobot.domain.HelpEmbed;
@@ -20,7 +21,8 @@ public class ControllerTest {
 	EmbedTemplate helpEmbed = new HelpEmbed();
 	Translator translator = new Translator();
 	Dictionary dictionary = new Dictionary();
-	Controller controller = new Controller(helpEmbed, translator, dictionary);
+	CurrencyExchange currencyExchange = new CurrencyExchange();
+	Controller controller = new Controller(helpEmbed, translator, dictionary, currencyExchange);
 	
 	@Test
 	public void testValidHelp() {
@@ -121,5 +123,48 @@ public class ControllerTest {
 			new Object[] {"", null},
 			new Object[] {null, ""}
 		};
+	}
+	
+	@Test
+	public void testValidExchangeCurrency() {
+		String guildName = "Guild name";
+		String baseCurrency = "USD";
+		String targetCurrency = "USD";
+		double amountToExchange = 100;
+		
+		EmbedBuilder actualCurrencyExchangeEmbedBuilder = controller.exchangeCurrency(guildName, baseCurrency, targetCurrency, amountToExchange);
+		int embedSize = actualCurrencyExchangeEmbedBuilder.getFields().size();
+		String lastUpated = actualCurrencyExchangeEmbedBuilder.getFields().get(embedSize-1).getValue();
+		
+		EmbedBuilder expectedCurrencyExchangeEmbedBuilder = new EmbedBuilder();
+		expectedCurrencyExchangeEmbedBuilder.setAuthor(guildName);
+		expectedCurrencyExchangeEmbedBuilder.setFooter("Created by Eislyn", "https://images-ext-1.discordapp.net/external/Eaa_hmN5uh9n2NH8FMUTK1WgHa-5dTGo2Ain7s6VSI8/https/static.boredpanda.com/blog/wp-content/uploads/2020/07/expressive-cat-nana-1-21-5f16d009589a4__700.jpg");
+		expectedCurrencyExchangeEmbedBuilder.setTitle("Currency Exchange");
+		expectedCurrencyExchangeEmbedBuilder.setDescription("Converted from " + "USD" + " to " + "USD");
+		expectedCurrencyExchangeEmbedBuilder.addField("Amount to convert", amountToExchange + baseCurrency, false);
+		expectedCurrencyExchangeEmbedBuilder.addField("Converted amount", 100.0 + "USD", false);
+		expectedCurrencyExchangeEmbedBuilder.addField("Last updated", lastUpated, false);
+
+		assertEquals(expectedCurrencyExchangeEmbedBuilder.build().toData().toString(), actualCurrencyExchangeEmbedBuilder.build().toData().toString());
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	@Parameters(method = "paramTestInvalidExchangeCurrency")
+	public void testInvalidExchangeCurrency(String guildName, String baseCurrency, String targetCurrency, double amountToExchange) {
+		controller.exchangeCurrency(guildName, baseCurrency, targetCurrency, amountToExchange);
+	}
+	
+	@SuppressWarnings("unused")
+	private Object[] paramTestInvalidExchangeCurrency() {
+		return new Object[] {
+			new Object[] {null, null, null, -1},
+			new Object[] {"", "", "", -2},
+			new Object[] {"", null, null, -3},
+			new Object[] {null, "", null, -4},
+			new Object[] {null, null, "", -5},
+			new Object[] {"", "", null, -6},
+			new Object[] {null, "", "", -7},
+			new Object[] {"", null, "", -8},
+		};		
 	}
 }

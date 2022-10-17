@@ -2,6 +2,9 @@ package com.eislyn.IAmNotARobot.dataService;
 
 import java.util.List;
 
+import com.eislyn.IAmNotARobot.domain.Currency;
+import com.eislyn.IAmNotARobot.domain.CurrencyExchange;
+import com.eislyn.IAmNotARobot.domain.CurrencyExchangeEmbed;
 import com.eislyn.IAmNotARobot.domain.Dictionary;
 import com.eislyn.IAmNotARobot.domain.DictionaryEmbed;
 import com.eislyn.IAmNotARobot.domain.EmbedTemplate;
@@ -19,16 +22,18 @@ public class Controller {
 	private EmbedTemplate embedTemplate;
 	private Translator translator;
 	private Dictionary dictionary;
+	private CurrencyExchange currencyExchange;
 	
 	/**
 	 * Pass in the parameters needed(owns business layer) from setup class, don't create it here.
 	 * @param embedTemplate
 	 * @param translator
 	 */
-	public Controller(EmbedTemplate embedTemplate, Translator translator, Dictionary dictionary) {
+	public Controller(EmbedTemplate embedTemplate, Translator translator, Dictionary dictionary, CurrencyExchange currencyExchange) {
 		this.embedTemplate = embedTemplate;
 		this.translator = translator;
 		this.dictionary = dictionary;
+		this.currencyExchange = currencyExchange;
 	}
 	
 	/**
@@ -77,5 +82,21 @@ public class Controller {
 		EmbedBuilder dictionaryEmbedBuilder = dictionaryEmbed.buildEmbed(guildName);
 		
 		return dictionaryEmbedBuilder;
+	}
+	
+	public EmbedBuilder exchangeCurrency(String authorName, String baseCurrency, String targetCurrency, double amountToExchange) {
+		if(authorName == null || authorName == "" || baseCurrency == null || baseCurrency == "" || targetCurrency == null || targetCurrency == "" || amountToExchange < 0) {
+			throw new IllegalArgumentException();
+		}
+		
+		currencyExchange.setBaseCurrency(baseCurrency);
+		currencyExchange.setTargetCurrency(targetCurrency);
+		currencyExchange.setAmountToConvert(amountToExchange);
+		Currency currency = currencyExchange.exchangeCurrency();
+		
+		EmbedTemplate currencyExchangeEmbed = new CurrencyExchangeEmbed(baseCurrency, targetCurrency, amountToExchange, currency);
+		EmbedBuilder currencyExchangeEmbedBuilder = currencyExchangeEmbed.buildEmbed(authorName);
+		
+		return currencyExchangeEmbedBuilder;
 	}
 }
