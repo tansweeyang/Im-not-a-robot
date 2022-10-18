@@ -1,5 +1,6 @@
 package com.eislyn.IAmNotARobot.domain;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.eislyn.IAmNotARobot.dataAccessAPI.HttpConnector;
@@ -42,8 +43,9 @@ public class CurrencyExchange {
 	/**
 	 * Exchange currency based on an amount, set baseCurrency, targetCurrency and amountToConvert first before using this.
 	 * @return currency Currency object
+	 * @throws JSONException
 	 */
-	public Currency exchangeCurrency() {
+	public Currency exchangeCurrency() throws JSONException{
 		if(baseCurrency == null || baseCurrency == "" || targetCurrency == null || targetCurrency == "" || amountToExchange < 0) {
 			throw new IllegalArgumentException();
 		}

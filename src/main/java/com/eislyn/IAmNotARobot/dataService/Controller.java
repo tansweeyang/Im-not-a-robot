@@ -2,6 +2,8 @@ package com.eislyn.IAmNotARobot.dataService;
 
 import java.util.List;
 
+import org.json.JSONException;
+
 import com.eislyn.IAmNotARobot.domain.Currency;
 import com.eislyn.IAmNotARobot.domain.CurrencyExchange;
 import com.eislyn.IAmNotARobot.domain.CurrencyExchangeEmbed;
@@ -92,7 +94,7 @@ public class Controller {
 	 * @param amountToExchange Amount to exchange 
 	 * @return currencyExchangeEmbedBuilder Output embed builder
 	 */
-	public EmbedBuilder exchangeCurrency(String authorName, String baseCurrency, String targetCurrency, double amountToExchange) {
+	public EmbedBuilder exchangeCurrency(String authorName, String baseCurrency, String targetCurrency, double amountToExchange) throws JSONException{
 		if(authorName == null || authorName == "" || baseCurrency == null || baseCurrency == "" || targetCurrency == null || targetCurrency == "" || amountToExchange < 0) {
 			throw new IllegalArgumentException();
 		}

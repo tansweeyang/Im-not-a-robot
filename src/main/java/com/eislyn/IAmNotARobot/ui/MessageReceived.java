@@ -85,16 +85,29 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 		}
 		else if(args[0].equalsIgnoreCase(prefix + "e")) {
 			if(args.length == 4) {
-				//Must be upper case for the currency api url
-				String baseCurrency = args[1].toUpperCase();
-				String targetCurrency = args[2].toUpperCase();
-				double amountToConvert = Double.parseDouble(args[3]);
-			    currencyExchange(event, baseCurrency, targetCurrency, amountToConvert);
-				return;
+				try {
+					//Must be upper case for the currency api url
+					String baseCurrency = args[1].toUpperCase();
+					String targetCurrency = args[2].toUpperCase();
+					double amountToConvert = Double.parseDouble(args[3]);
+				    currencyExchange(event, baseCurrency, targetCurrency, amountToConvert);
+					return;
+				}catch (JSONException e) {
+					sendMessage(event, "Invalid base currency or target currency. See https://currencyapi.com/docs/currency-list for the full supported currency list.");
+					return;
+				}	
 			}
 			else {
 				sendMessage(event, "Invalid exchange command. Type ``e!e baseCurrency targetCurrency amountToExchange`` to translate a currency from one to another.");
 				return;
+			}
+		}
+		else if(args[0].equalsIgnoreCase(prefix + "helpct")) {
+			if(args.length == 1) {
+				sendMessage(event, "See https://currencyapi.com/docs/currency-list for the full supported currency list.");
+			}
+			else {
+				sendMessage(event, "Invalid help command. Type ``e!help`` to get the help menu.");
 			}
 		}
 		else if(args[0].contains("e!") || args[0].contains("E!")) {
