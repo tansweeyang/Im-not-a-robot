@@ -84,6 +84,14 @@ public class Controller {
 		return dictionaryEmbedBuilder;
 	}
 	
+	/**
+	 * 
+	 * @param authorName Discord guild name
+	 * @param baseCurrency Base currency to exchange
+	 * @param targetCurrency Target currency to exchange to
+	 * @param amountToExchange Amount to exchange 
+	 * @return currencyExchangeEmbedBuilder Output embed builder
+	 */
 	public EmbedBuilder exchangeCurrency(String authorName, String baseCurrency, String targetCurrency, double amountToExchange) {
 		if(authorName == null || authorName == "" || baseCurrency == null || baseCurrency == "" || targetCurrency == null || targetCurrency == "" || amountToExchange < 0) {
 			throw new IllegalArgumentException();
@@ -91,7 +99,7 @@ public class Controller {
 		
 		currencyExchange.setBaseCurrency(baseCurrency);
 		currencyExchange.setTargetCurrency(targetCurrency);
-		currencyExchange.setAmountToConvert(amountToExchange);
+		currencyExchange.setAmountToExchange(amountToExchange);
 		Currency currency = currencyExchange.exchangeCurrency();
 		
 		EmbedTemplate currencyExchangeEmbed = new CurrencyExchangeEmbed(baseCurrency, targetCurrency, amountToExchange, currency);

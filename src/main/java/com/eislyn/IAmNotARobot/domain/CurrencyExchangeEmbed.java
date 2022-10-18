@@ -1,5 +1,10 @@
 package com.eislyn.IAmNotARobot.domain;
 
+/**
+ * Creates a CurrencyExchangeEmbed using EmbedTemplate by overriding abstract methods.
+ * @author Eislyn
+ * @since 18/10/2022
+ */
 public class CurrencyExchangeEmbed extends EmbedTemplate{
 
 	private String baseCurrency;
@@ -7,6 +12,13 @@ public class CurrencyExchangeEmbed extends EmbedTemplate{
 	private double amountToExchange;
 	private Currency currency;
 	
+	/**
+	 * Constructs necessary information for CurrencyExchangeEmbed
+	 * @param baseCurrency
+	 * @param targetCurrency
+	 * @param amountToExchange
+	 * @param currency
+	 */
 	public CurrencyExchangeEmbed(String baseCurrency, String targetCurrency, double amountToExchange, Currency currency) {
 		this.baseCurrency = baseCurrency;
 		this.targetCurrency = targetCurrency;
@@ -27,7 +39,7 @@ public class CurrencyExchangeEmbed extends EmbedTemplate{
 	@Override
 	public void addField() {
 		embedBuilder.addField("Amount to convert", amountToExchange + baseCurrency, false);
-		embedBuilder.addField("Converted amount", currency.getConvertedAmount() + currency.getCode(), false);
+		embedBuilder.addField("Converted amount", currency.getExchangedAmount() + currency.getCode(), false);
 		embedBuilder.addField("Last updated", currency.getLastUpdated(), false);
 	}
 }

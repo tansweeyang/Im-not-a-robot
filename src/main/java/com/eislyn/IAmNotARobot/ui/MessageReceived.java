@@ -37,43 +37,38 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 			return;
 		}
 		else if (args[0].equalsIgnoreCase(prefix + "help")) {
-			if (args.length < 2) {
+			if (args.length == 1) {
 				help(event, event.getGuild().getName());
 				return;
 			}
 			else {
-				sendMessage(event, "Invalid command. Type ``e!help`` to get the help menu.");
+				sendMessage(event, "Invalid help command. Type ``e!help`` to get the help menu.");
 				return;
 			}
 		}
 		else if(args[0].equalsIgnoreCase(prefix + "ts")) {
-			String langTo = args[1];
-			
-			if(args.length < 3) {
-				sendMessage(event, "Invalid translate command. Type ``e!ts targetLanguage message to translate.``");
+			if(args.length >= 3) {
+				String langTo = args[1];
+				translate(event, args, langTo);
 				return;
 			}
 			else {
-				translate(event, args, langTo);
+				sendMessage(event, "Invalid translate command. Type ``e!ts targetLanguage message to translate.``");
 				return;
 			}
 		}
 		else if(args[0].equalsIgnoreCase(prefix + "helpts")) {
-			if(args.length < 2) {
+			if(args.length == 1) {
 				sendMessage(event, "See https://cloud.google.com/translate/docs/languages for the full list of supported languages.");
 				return;
 			}
 			else {
-				sendMessage(event, "Invalid command. Type ``e!help`` to get the help menu.");
+				sendMessage(event, "Invalid help command. Type ``e!help`` to get the help menu.");
 				return;
 			}
 		}
 		else if(args[0].equalsIgnoreCase(prefix + "d")) {
-			if(args.length < 2 || args.length > 2) {
-				sendMessage(event, "Enter a word to get its definition. ``e!d word``.");
-				return;
-			}
-			else {
+			if(args.length == 2) {
 				String word = args[1];
 				try {
 					dictionary(event, event.getGuild().getName(), word);
@@ -83,10 +78,24 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 					return;
 				}
 			}
+			else {
+				sendMessage(event, "Invalid dictionary command. Enter a word to get its definition. ``e!d word``.");
+				return;
+			}
 		}
-		else if(args[0].equalsIgnoreCase(prefix + "d")) {
-			
-			currencyExchange(event, baseCurrency, targetCurrency, amountToConvert);
+		else if(args[0].equalsIgnoreCase(prefix + "e")) {
+			if(args.length == 4) {
+				//Must be upper case for the currency api url
+				String baseCurrency = args[1].toUpperCase();
+				String targetCurrency = args[2].toUpperCase();
+				double amountToConvert = Double.parseDouble(args[3]);
+			    currencyExchange(event, baseCurrency, targetCurrency, amountToConvert);
+				return;
+			}
+			else {
+				sendMessage(event, "Invalid exchange command. Type ``e!e baseCurrency targetCurrency amountToExchange`` to translate a currency from one to another.");
+				return;
+			}
 		}
 		else if(args[0].contains("e!") || args[0].contains("E!")) {
 			sendMessage(event, "Invalid command. Type ``e!help`` to get the help menu.");

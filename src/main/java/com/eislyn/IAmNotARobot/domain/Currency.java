@@ -1,10 +1,15 @@
 package com.eislyn.IAmNotARobot.domain;
 
+/**
+ * Stores data returned from the currency exchange api.
+ * @author Eislyn
+ * @since 18/10/2022
+ */
 public class Currency {
 	private String lastUpdated;
-	private String code;
+	private String code; //target Currency returned from the api
 	private double conversionRate;
-	private double convertedAmount;
+	private double exchangedAmount;
 	
 	public String getLastUpdated() {
 		return lastUpdated;
@@ -24,10 +29,10 @@ public class Currency {
 	public void setCode(String code) {
 		this.code = code;
 	}
-	public double getConvertedAmount() {
-		return convertedAmount;
+	public double getExchangedAmount() {
+		return exchangedAmount;
 	}
-	public void setConvertedAmount(double convertedAmount) {
-		this.convertedAmount = convertedAmount;
+	public void setExchangedAmount(double exchangedAmount) {
+		this.exchangedAmount = exchangedAmount;
 	}
 }
