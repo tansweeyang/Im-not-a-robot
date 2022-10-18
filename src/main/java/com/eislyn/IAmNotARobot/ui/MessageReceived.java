@@ -93,7 +93,7 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 				    currencyExchange(event, baseCurrency, targetCurrency, amountToConvert);
 					return;
 				}catch (JSONException e) {
-					sendMessage(event, "Invalid base currency or target currency. See https://currencyapi.com/docs/currency-list for the full supported currency list.");
+					sendMessage(event, "Invalid base currency or target currency. See https://currencyapi.com/docs/ for the full supported currency list.");
 					return;
 				}	
 			}
@@ -104,10 +104,15 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 		}
 		else if(args[0].equalsIgnoreCase(prefix + "helpct")) {
 			if(args.length == 1) {
-				sendMessage(event, "See https://currencyapi.com/docs/currency-list for the full supported currency list.");
+				sendMessage(event, "https://currencyapi.com/docs/ for the full supported currency list.");
 			}
 			else {
 				sendMessage(event, "Invalid help command. Type ``e!help`` to get the help menu.");
+			}
+		}
+		else if(args[0].equalsIgnoreCase(prefix + "time")) {
+			if(args.length == 2) {
+				
 			}
 		}
 		else if(args[0].contains("e!") || args[0].contains("E!")) {
@@ -161,6 +166,13 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 		sendEmbedMessage(event, controller.dictionary(guildName, word));
 	}
 	
+	/**
+	 * 
+	 * @param event
+	 * @param baseCurrency
+	 * @param targetCurrency
+	 * @param amountToConvert
+	 */
 	private void currencyExchange(MessageReceivedEvent event, String baseCurrency, String targetCurrency, double amountToConvert) {
 		String guildName = event.getGuild().getName();
 		EmbedBuilder currencyExchangeEmbedBuilder = controller.exchangeCurrency(guildName, baseCurrency, targetCurrency, amountToConvert);
