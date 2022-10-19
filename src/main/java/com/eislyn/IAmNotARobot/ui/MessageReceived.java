@@ -1,10 +1,13 @@
 package com.eislyn.IAmNotARobot.ui;
 
 import java.util.EventListener;
+import java.util.List;
 
 import org.json.JSONException;
 
 import com.eislyn.IAmNotARobot.dataService.Controller;
+import com.eislyn.IAmNotARobot.domain.Currency;
+import com.eislyn.IAmNotARobot.domain.PartOfSpeech;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -95,7 +98,10 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 				}catch (JSONException e) {
 					sendMessage(event, "Invalid base currency or target currency. See https://currencyapi.com/docs/ for the full supported currency list.");
 					return;
-				}	
+				} catch (IllegalArgumentException e) {
+					sendMessage(event, "Invalid exchange amount. Enter only a positive value.");
+					return;
+				}
 			}
 			else {
 				sendMessage(event, "Invalid exchange command. Type ``e!e baseCurrency targetCurrency amountToExchange`` to translate a currency from one to another.");
@@ -105,9 +111,11 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 		else if(args[0].equalsIgnoreCase(prefix + "helpct")) {
 			if(args.length == 1) {
 				sendMessage(event, "https://currencyapi.com/docs/ for the full supported currency list.");
+				return;
 			}
 			else {
 				sendMessage(event, "Invalid help command. Type ``e!help`` to get the help menu.");
+				return;
 			}
 		}
 		else if(args[0].equalsIgnoreCase(prefix + "time")) {
@@ -127,7 +135,8 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 	 * @param guildName Discord guild name
 	 */
 	private void help(MessageReceivedEvent event, String guildName) {
-		EmbedBuilder embedBuilder = controller.help(guildName);
+		EmbedTemplate embedTemplate = new HelpEmbed();
+		EmbedBuilder embedBuilder = embedTemplate.buildEmbed(guildName);
 		sendEmbedMessage(event, embedBuilder);
 		return;
 	}
@@ -163,7 +172,12 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 	 * @return dictionaryEmbed a dictionary Embed
 	 */
 	private void dictionary(MessageReceivedEvent event, String guildName, String word) {
-		sendEmbedMessage(event, controller.dictionary(guildName, word));
+		
+		List<PartOfSpeech> partOfSpeechList = controller.dictionary(word);
+		
+		EmbedTemplate embedTemplate = new DictionaryEmbed(partOfSpeechList, word);
+		EmbedBuilder dictionaryEmbedBuilder = embedTemplate.buildEmbed(guildName);
+		sendEmbedMessage(event, dictionaryEmbedBuilder);
 	}
 	
 	/**
@@ -175,7 +189,12 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 	 */
 	private void currencyExchange(MessageReceivedEvent event, String baseCurrency, String targetCurrency, double amountToConvert) {
 		String guildName = event.getGuild().getName();
-		EmbedBuilder currencyExchangeEmbedBuilder = controller.exchangeCurrency(guildName, baseCurrency, targetCurrency, amountToConvert);
+
+		Currency currency = controller.exchangeCurrency(baseCurrency, targetCurrency, amountToConvert);
+	
+		EmbedTemplate embedTemplate = new CurrencyExchangeEmbed(baseCurrency, targetCurrency, amountToConvert, currency);
+		EmbedBuilder currencyExchangeEmbedBuilder = embedTemplate.buildEmbed(guildName);
+		
 		sendEmbedMessage(event, currencyExchangeEmbedBuilder);
 		return;
 	}

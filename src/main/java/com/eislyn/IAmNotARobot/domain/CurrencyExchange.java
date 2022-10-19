@@ -19,15 +19,9 @@ public class CurrencyExchange {
 	private String targetCurrency;
 	private double amountToExchange;
 
-	public void setBaseCurrency(String baseCurrency) {
+	public CurrencyExchange(String baseCurrency, String targetCurrency, double amountToExchange) {
 		this.baseCurrency = baseCurrency;
-	}
-
-	public void setTargetCurrency(String targetCurrency) {
 		this.targetCurrency = targetCurrency;
-	}
-
-	public void setAmountToExchange(double amountToExchange) {
 		this.amountToExchange = amountToExchange;
 	}
 
@@ -56,23 +50,19 @@ public class CurrencyExchange {
 				+ "&base_currency=" + baseCurrency;
 		String responseStr = HttpConnector.getResponse(urlStr);
 
-		//Maps the json data into a currency object
-		Currency currency = new Currency();
-		
 		//Last updated
 		JSONObject conversionObject = new JSONObject(responseStr);
 		JSONObject metaObject = conversionObject.getJSONObject("meta");
-		currency.setLastUpdated(metaObject.getString("last_updated_at"));
+		String lastUpdated = metaObject.getString("last_updated_at");
 
 		JSONObject dataObject = conversionObject.getJSONObject("data");
 		JSONObject currencyObject = dataObject.getJSONObject(targetCurrency);
 		
-		//Set values in currency class
-		//*Code = Target currency returned by the api*
-		currency.setCode(currencyObject.getString("code"));
-		currency.setConversionRate(currencyObject.getDouble("value"));
-		currency.setExchangedAmount(currency.getConversionRate() * amountToExchange);
-
+		double conversionRate = currencyObject.getDouble("value");
+		double exchangedAmount = conversionRate * amountToExchange;
+		//Maps the json data into a currency object
+		Currency currency = new Currency(lastUpdated, targetCurrency, conversionRate, exchangedAmount);
+	
 		//return the mapped currency object
 		return currency;
 	}

@@ -1,11 +1,6 @@
 package com.eislyn.IAmNotARobot.app;
 
 import com.eislyn.IAmNotARobot.dataService.Controller;
-import com.eislyn.IAmNotARobot.domain.CurrencyExchange;
-import com.eislyn.IAmNotARobot.domain.Dictionary;
-import com.eislyn.IAmNotARobot.domain.EmbedTemplate;
-import com.eislyn.IAmNotARobot.domain.HelpEmbed;
-import com.eislyn.IAmNotARobot.domain.Translator;
 import com.eislyn.IAmNotARobot.ui.GuildMemberJoin;
 import com.eislyn.IAmNotARobot.ui.GuildMemberRemove;
 import com.eislyn.IAmNotARobot.ui.MessageReceived;
@@ -100,11 +95,7 @@ public class JDASetup {
 		jdaBuilder.enableCache(CacheFlag.MEMBER_OVERRIDES);
 		jdaBuilder.setMemberCachePolicy(MemberCachePolicy.ALL);
 		
-		EmbedTemplate helpEmbed = new HelpEmbed();
-		Translator translator = new Translator();
-		Dictionary dictionary = new Dictionary();
-		CurrencyExchange currencyExchange = new CurrencyExchange();
-		Controller controller = new Controller(helpEmbed, translator, dictionary, currencyExchange);
+		Controller controller = new Controller();
 		jdaBuilder.addEventListeners(new MessageReceived(controller, PREFIX));
 		jdaBuilder.addEventListeners(new GuildMemberJoin());
 		jdaBuilder.addEventListeners(new GuildMemberRemove());

@@ -11,26 +11,30 @@ import java.util.List;
 public class PartOfSpeech {
 	private String partOfSpeech; 
 	private List<String> definitionList = new ArrayList<String>();
+	
+	public PartOfSpeech(String partOfSpeech, List<String> definitionList) {
+		this.partOfSpeech = partOfSpeech;
+		this.definitionList = definitionList;
+	}
 
 	public List<String> getDefinitionList() {
 		return definitionList;
 	}
 
-	public void setDefinitionList(List<String> definitionList) {
-		this.definitionList = definitionList;
-	}
-
 	public String getPartOfSpeech() {
 		return partOfSpeech;
 	}
-
-	public void setPartOfSpeech(String partOfSpeech) {
-		this.partOfSpeech = partOfSpeech;
-	}
 	
-	public void addDefinitionList(String definition) {
-		definitionList.add(definition);
+	@Override
+	public String toString() {
+		String defintiionFull = "Part of speech: " + this.partOfSpeech + "\n";
+		
+		for(String defitnionStr : definitionList) {
+			defintiionFull += "Definition: " + defitnionStr + "\n";
+		}
+		
+		return defintiionFull;
+		
 	}
-	
 
 }

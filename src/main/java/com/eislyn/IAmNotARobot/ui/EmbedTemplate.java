@@ -1,4 +1,4 @@
-package com.eislyn.IAmNotARobot.domain;
+package com.eislyn.IAmNotARobot.ui;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 

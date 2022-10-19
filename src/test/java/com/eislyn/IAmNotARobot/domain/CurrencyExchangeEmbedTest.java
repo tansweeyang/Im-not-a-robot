@@ -4,6 +4,9 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import com.eislyn.IAmNotARobot.ui.CurrencyExchangeEmbed;
+import com.eislyn.IAmNotARobot.ui.EmbedTemplate;
+
 import net.dv8tion.jda.api.EmbedBuilder;
 
 public class CurrencyExchangeEmbedTest {
@@ -13,11 +16,7 @@ public class CurrencyExchangeEmbedTest {
 		String baseCurrency = "USD";
 		String targetCurrency = "MYR";
 		double amountToExchange = 100;
-		Currency currency = new Currency();
-		currency.setConversionRate(4.0);
-		currency.setCode("MYR");
-		currency.setExchangedAmount(400.0);
-		currency.setLastUpdated("2022-10-17T23:59:59Z");
+		Currency currency = new Currency("2022-10-17T23:59:59Z", "MYR", 4.0, 400.0);		
 		
 		EmbedTemplate currencyExchangeEmbed = new CurrencyExchangeEmbed(baseCurrency, targetCurrency, amountToExchange, currency);
 		EmbedBuilder actualCurrencyEmbedBuilder = currencyExchangeEmbed.buildEmbed("Server Name");

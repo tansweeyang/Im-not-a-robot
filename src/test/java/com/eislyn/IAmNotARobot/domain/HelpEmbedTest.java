@@ -5,6 +5,9 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import com.eislyn.IAmNotARobot.ui.EmbedTemplate;
+import com.eislyn.IAmNotARobot.ui.HelpEmbed;
+
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import net.dv8tion.jda.api.EmbedBuilder;

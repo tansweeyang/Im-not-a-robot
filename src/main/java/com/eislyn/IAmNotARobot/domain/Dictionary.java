@@ -17,16 +17,8 @@ import com.eislyn.IAmNotARobot.dataAccessAPI.HttpConnector;
 public class Dictionary {
 	private String word;
 	
-	/**
-	 * Set the word before calling getResponseAsListOfClasses
-	 * @param word Word to get response 
-	 */
-	public void setWord(String word) {
+	public Dictionary(String word) {
 		this.word = word;
-	}
-	
-	public String getWord() {
-		return word;
 	}
 	
 	/**
@@ -63,9 +55,8 @@ public class Dictionary {
 				String partOfSpeechString = meaningJsonObject.getString("partOfSpeech");
 				
 				//Create a PartOfSpeech class
-				PartOfSpeech partOfSpeechObject = new PartOfSpeech();
-				//set part of speech of that one class
-				partOfSpeechObject.setPartOfSpeech(partOfSpeechString);
+				List<String> definitionList = new ArrayList<String>();
+				PartOfSpeech partOfSpeechObject;
 				
 				//One meaningJsonObject has one defintionsJsonArray
 				JSONArray definitionsJsonArray = meaningJsonObject.getJSONArray("definitions");
@@ -79,9 +70,10 @@ public class Dictionary {
 					String definitionString = definitionJsonObject.getString("definition");
 					
 					//Add the definitionString into partOfSpeech object definitionList
-					partOfSpeechObject.addDefinitionList(definitionString);
+					definitionList.add(definitionString);
 				}
 				
+				partOfSpeechObject = new PartOfSpeech(partOfSpeechString, definitionList);
 				//partOfSpeech object is constructed, add object to a list to store
 				partOfSpeechList.add(partOfSpeechObject);
 			}

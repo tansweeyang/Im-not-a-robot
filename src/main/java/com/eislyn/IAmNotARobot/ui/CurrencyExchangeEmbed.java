@@ -1,4 +1,6 @@
-package com.eislyn.IAmNotARobot.domain;
+package com.eislyn.IAmNotARobot.ui;
+
+import com.eislyn.IAmNotARobot.domain.Currency;
 
 /**
  * Creates a CurrencyExchangeEmbed using EmbedTemplate by overriding abstract methods.

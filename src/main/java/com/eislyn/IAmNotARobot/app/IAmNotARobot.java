@@ -10,7 +10,6 @@ import net.dv8tion.jda.api.JDA;
  * 15/10/2022
  */
 public class IAmNotARobot {
-
 	/**
 	 * Starts the application by setting up, shuts down jda with q, do not shut down using stop button in console.
 	 * @param args

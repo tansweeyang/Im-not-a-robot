@@ -15,10 +15,9 @@ import junitparams.Parameters;
 public class DictionaryTest {
 	@Test
 	public void testValidGetResponseAsListOfClasses() {
-		Dictionary dictionary = new Dictionary();
+		Dictionary dictionary = new Dictionary("multithreading");
 		String actualResult = "";
 		
-		dictionary.setWord("multithreading");
 		List<PartOfSpeech> partOfSpeechList = dictionary.getResponseAsPartOfSpeechList();
 		for(int i=0; i<partOfSpeechList.size(); i++) {
 			actualResult += "Part of speech: " + partOfSpeechList.get(i).getPartOfSpeech();
@@ -38,8 +37,7 @@ public class DictionaryTest {
 	@Test (expected = IllegalArgumentException.class)
 	@Parameters(method = "paramTestInvalidGetResponseAsListOfClasses")
 	public void testInvalidArgumentGetResponseAsListOfClasses(String word) {
-		Dictionary dictionary = new Dictionary();
-		dictionary.setWord(word);
+		Dictionary dictionary = new Dictionary(word);
 		dictionary.getResponseAsPartOfSpeechList();
 	}
 	
@@ -53,8 +51,7 @@ public class DictionaryTest {
 	
 	@Test (expected = JSONException.class)
 	public void testJsonExceptionGetResponseAsListOfClasses() {
-		Dictionary dictionary = new Dictionary();
-		dictionary.setWord("asdsajdksad");
+		Dictionary dictionary = new Dictionary("asjdknsadna");
 		dictionary.getResponseAsPartOfSpeechList();
 	}
 

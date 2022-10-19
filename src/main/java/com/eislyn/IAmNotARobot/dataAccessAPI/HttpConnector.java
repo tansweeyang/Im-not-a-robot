@@ -11,7 +11,7 @@ import java.net.URL;
  * @author Eislyn
  * @since 16/10/2022
  */
-public class HttpConnector {
+public final class HttpConnector {
 	/**
 	 * Gets a response from an api given a string.
 	 * @param urlStr Url string

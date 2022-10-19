@@ -1,7 +1,6 @@
 package com.eislyn.IAmNotARobot.domain;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,74 +10,22 @@ import junitparams.Parameters;
 
 @RunWith(JUnitParamsRunner.class)
 public class CurrencyExchangeTest {
-	CurrencyExchange currencyExchange = new CurrencyExchange();
+	
 	
 	@Test
 	public void testValidExchangeCurrencyNotNullCode() {
-		currencyExchange.setBaseCurrency("USD");
-		currencyExchange.setTargetCurrency("MYR");
-		currencyExchange.setAmountToExchange(100);
-		
+		CurrencyExchange currencyExchange = new CurrencyExchange("USD", "USD", 100.0);
 		Currency actualCurrency = currencyExchange.exchangeCurrency();
 		
-		assertNotNull(actualCurrency.getCode());
-	}
-	
-	@Test
-	public void testValidExchangeCurrencyNotNullConversionRate() {
-		currencyExchange.setBaseCurrency("USD");
-		currencyExchange.setTargetCurrency("MYR");
-		currencyExchange.setAmountToExchange(100);
+		Currency expectedCurrency = new Currency("", "USD", 1.0, 100.0);
 		
-		Currency actualCurrency = currencyExchange.exchangeCurrency();
-		
-		assertNotNull(actualCurrency.getConversionRate());
-	}
-	
-	@Test
-	public void testValidExchangeCurrencyNotNullLastUpdated() {
-		currencyExchange.setBaseCurrency("USD");
-		currencyExchange.setTargetCurrency("MYR");
-		currencyExchange.setAmountToExchange(100);
-		
-		Currency actualCurrency = currencyExchange.exchangeCurrency();
-		
-		assertNotNull(actualCurrency.getLastUpdated());
-	}
-	
-	@Test
-	public void testValidExchangeCurrencyNotNullConvertedAmount() {
-		currencyExchange.setBaseCurrency("USD");
-		currencyExchange.setTargetCurrency("MYR");
-		currencyExchange.setAmountToExchange(100);
-		
-		Currency actualCurrency = currencyExchange.exchangeCurrency();
-		
-		assertNotNull(actualCurrency.getExchangedAmount());
-	}
-	
-	@Test
-	public void testValidExchangeCurrencyGreaterZeroConvertedAmount() {
-		currencyExchange.setBaseCurrency("USD");
-		currencyExchange.setTargetCurrency("MYR");
-		currencyExchange.setAmountToExchange(100);
-		
-		Currency actualCurrency = currencyExchange.exchangeCurrency();
-		
-		boolean isGreaterThanZero = false;
-		if(actualCurrency.getExchangedAmount()>0) {
-			isGreaterThanZero = true;
-		}
-		assertSame(true, isGreaterThanZero);
+		assertEquals(expectedCurrency.toString(), actualCurrency.toString());
 	}
 	
 	@Test(expected = IllegalArgumentException.class)
 	@Parameters(method = "paramTestInvalidExchangeCurrency")
 	public void testInvalidExchangeCurrency(String baseCurrency, String targetCurrency, double amountToExchange) {
-		currencyExchange.setBaseCurrency(baseCurrency);
-		currencyExchange.setTargetCurrency(targetCurrency);
-		currencyExchange.setAmountToExchange(amountToExchange);
-		
+		CurrencyExchange currencyExchange = new CurrencyExchange(baseCurrency, targetCurrency, amountToExchange);
 		currencyExchange.exchangeCurrency();
 	}
 	

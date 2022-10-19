@@ -11,6 +11,13 @@ public class Currency {
 	private double conversionRate;
 	private double exchangedAmount;
 	
+	public Currency(String lastUpdated, String code, double conversionRate, double exchangedAmount) {
+		this.lastUpdated = lastUpdated;
+		this.code = code;
+		this.conversionRate = conversionRate;
+		this.exchangedAmount = exchangedAmount;
+	}
+	
 	public String getLastUpdated() {
 		return lastUpdated;
 	}
@@ -34,5 +41,10 @@ public class Currency {
 	}
 	public void setExchangedAmount(double exchangedAmount) {
 		this.exchangedAmount = exchangedAmount;
+	}
+	
+	@Override
+	public String toString() {
+		return "Code: " + this.getCode() + "Conversion rate: " + this.getConversionRate() + "Exchange amount: " + this.exchangedAmount;
 	}
 }

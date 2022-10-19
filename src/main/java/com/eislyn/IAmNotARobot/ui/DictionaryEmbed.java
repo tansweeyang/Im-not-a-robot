@@ -1,6 +1,8 @@
-package com.eislyn.IAmNotARobot.domain;
+package com.eislyn.IAmNotARobot.ui;
 
 import java.util.List;
+
+import com.eislyn.IAmNotARobot.domain.PartOfSpeech;
 
 /**
  * Creates a dictionary embed using EmbedTemplate by overriding abstract methods.

@@ -1,4 +1,4 @@
-package com.eislyn.IAmNotARobot.domain;
+package com.eislyn.IAmNotARobot.ui;
 
 /**
  * Creates a help embed using EmbedTemplate by overriding abstract methods.
