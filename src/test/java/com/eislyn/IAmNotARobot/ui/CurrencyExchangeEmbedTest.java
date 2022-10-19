@@ -1,11 +1,10 @@
-package com.eislyn.IAmNotARobot.domain;
+package com.eislyn.IAmNotARobot.ui;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.eislyn.IAmNotARobot.ui.CurrencyExchangeEmbed;
-import com.eislyn.IAmNotARobot.ui.EmbedTemplate;
+import com.eislyn.IAmNotARobot.domain.Currency;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 
