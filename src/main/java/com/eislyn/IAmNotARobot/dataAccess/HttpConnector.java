@@ -1,4 +1,4 @@
-package com.eislyn.IAmNotARobot.dataAccessAPI;
+package com.eislyn.IAmNotARobot.dataAccess;
 
 import java.io.BufferedReader;
 import java.io.IOException;

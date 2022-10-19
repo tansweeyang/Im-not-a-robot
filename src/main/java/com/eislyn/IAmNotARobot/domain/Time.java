@@ -23,11 +23,24 @@ public class Time {
 	/**
 	 * Formats the dateAndTime, setTimeZone first before using this method.
 	 */
-	public void formatTimeAndDate() {
+	public void formatTimeAndDate(){
 		if(timeZone == null || timeZone == "") {
 			throw new IllegalArgumentException();
 		}
 		
+		String[] availableTimeZoneIDs = TimeZone.getAvailableIDs();
+		boolean isLegalArgument = false;
+		
+		for(int i=0; i<availableTimeZoneIDs.length; i++) {
+			if(this.timeZone.equals(availableTimeZoneIDs[i])) {
+				isLegalArgument = true;
+				break;
+			}
+		}
+		if(isLegalArgument == false) {
+			throw new IllegalArgumentException();
+		}
+
 		TimeZone.setDefault(TimeZone.getTimeZone(timeZone));
 		SimpleDateFormat dateFormat = new SimpleDateFormat();
 		Date date = new Date();

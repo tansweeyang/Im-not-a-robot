@@ -3,7 +3,7 @@ package com.eislyn.IAmNotARobot.domain;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
-import com.eislyn.IAmNotARobot.dataAccessAPI.HttpConnector;
+import com.eislyn.IAmNotARobot.dataAccess.HttpConnector;
 
 import io.github.cdimascio.dotenv.Dotenv;
 

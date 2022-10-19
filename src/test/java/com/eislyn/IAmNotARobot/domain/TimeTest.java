@@ -41,8 +41,8 @@ public class TimeTest {
 	private Object[] paramTestInvalidFormatTimeAndDate() {
 		return new Object[] {
 			new Object[] {null},
-			new Object[] {""}
+			new Object[] {""},
+			new Object[] {"qiuwhdnkqasc"}
 		};
 	}
-
 }

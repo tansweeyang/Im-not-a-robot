@@ -1,6 +1,6 @@
 package com.eislyn.IAmNotARobot.app;
 
-import com.eislyn.IAmNotARobot.dataService.Controller;
+import com.eislyn.IAmNotARobot.domain.Controller;
 import com.eislyn.IAmNotARobot.ui.GuildMemberJoin;
 import com.eislyn.IAmNotARobot.ui.GuildMemberRemove;
 import com.eislyn.IAmNotARobot.ui.MessageReceived;

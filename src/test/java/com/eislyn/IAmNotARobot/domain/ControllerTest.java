@@ -1,15 +1,15 @@
-package com.eislyn.IAmNotARobot.dataService;
+package com.eislyn.IAmNotARobot.domain;
 
 import static org.junit.Assert.assertEquals;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import com.eislyn.IAmNotARobot.domain.Currency;
-import com.eislyn.IAmNotARobot.domain.PartOfSpeech;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
@@ -93,6 +93,27 @@ public class ControllerTest {
 			new Object[] {"", null, -2},
 			new Object[] {null, "", -3},
 			new Object[] {"", "", -4},
+		};		
+	}
+	
+	@Test
+	@Parameters(method = "paramTestValidCurrentDateAndTime")
+	public void testValidCurrentDateAndTime(String timeZone) {
+		String actualDateAndTime = controller.currentDateAndTime(timeZone);
+		
+		TimeZone.setDefault(TimeZone.getTimeZone(timeZone));
+		SimpleDateFormat dateFormat = new SimpleDateFormat();
+		Date date = new Date();
+		String expectedCurrentDateAndTime = dateFormat.format(date);
+		assertEquals(expectedCurrentDateAndTime, actualDateAndTime);
+	}
+	
+	@SuppressWarnings("unused")
+	private Object[] paramTestValidCurrentDateAndTime() {
+		return new Object[] {
+			new Object[] {"Asia/Kuala_Lumpur"},
+			new Object[] {"Canada/Pacific"},
+			new Object[] {"Australia/Sydney"},
 		};		
 	}
 }

@@ -1,15 +1,8 @@
-package com.eislyn.IAmNotARobot.dataService;
+package com.eislyn.IAmNotARobot.domain;
 
 import java.util.List;
 
 import org.json.JSONException;
-
-import com.eislyn.IAmNotARobot.domain.Currency;
-import com.eislyn.IAmNotARobot.domain.CurrencyExchange;
-import com.eislyn.IAmNotARobot.domain.Dictionary;
-import com.eislyn.IAmNotARobot.domain.PartOfSpeech;
-import com.eislyn.IAmNotARobot.domain.Time;
-import com.eislyn.IAmNotARobot.domain.Translator;
 
 /**
  * Directs input and output to the corresponding upper and lower layers.
@@ -78,7 +71,11 @@ public class Controller {
 		return currency;
 	}
 	
-	public String currentTime(String timeZone) {
+	public String currentDateAndTime(String timeZone) {
+		if(timeZone == null || timeZone == "") {
+			throw new IllegalArgumentException();
+		}
+		
 		Time time = new Time();
 		time.setTimeZone(timeZone);
 		time.formatTimeAndDate();

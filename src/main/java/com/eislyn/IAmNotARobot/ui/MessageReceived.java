@@ -2,10 +2,12 @@ package com.eislyn.IAmNotARobot.ui;
 
 import java.util.EventListener;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import org.json.JSONException;
 
-import com.eislyn.IAmNotARobot.dataService.Controller;
+import com.eislyn.IAmNotARobot.domain.Controller;
 import com.eislyn.IAmNotARobot.domain.Currency;
 import com.eislyn.IAmNotARobot.domain.PartOfSpeech;
 
@@ -36,6 +38,8 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 		// space or multiple spaces. \s+ is a regular expression for one or more spaces.
 		String[] args = event.getMessage().getContentRaw().split("\\s+");
 
+		char[] firstArgArray = args[0].toCharArray();
+		
 		if (event.getAuthor().isBot() == true) {
 			return;
 		}
@@ -120,10 +124,36 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 		}
 		else if(args[0].equalsIgnoreCase(prefix + "time")) {
 			if(args.length == 2) {
-				
+				String timeZoneName = args[1];
+				try {
+					String time = controller.currentDateAndTime(timeZoneName);
+					sendMessage(event, time);
+					return;
+				} catch (IllegalArgumentException e) {
+					sendMessage(event, "Invalid time zone name. See https://mkyong.com/java/java-display-list-of-timezone-with-gmt/ for the full supported time zone list.");
+					return;
+				}
+			}
+			else {
+				sendMessage(event, "Invalid time command. Type ``e!time timeZoneName`` / ``e!time timeZoneCode`` to get the current date and time froma time zone.");
+				return;
 			}
 		}
-		else if(args[0].contains("e!") || args[0].contains("E!")) {
+		else if(args[0].equalsIgnoreCase(prefix + "helptime")) {
+			sendMessage(event, "See https://mkyong.com/java/java-display-list-of-timezone-with-gmt/ for the full supported time zone list.");
+			return;
+		}
+		else if(args[0].equalsIgnoreCase(prefix + "timer")) {
+			try {
+				long minutes = Long.parseLong(args[1]);
+				timer(event, minutes);
+				return;
+			} catch(IllegalArgumentException e) {
+				sendMessage(event, "Illegal timer command. Type ``e!timer minutes`` to set a ping timer in number of minutes. Minutes must be in Integers only.");
+				return;
+			}
+		}
+		else if(firstArgArray[0] == 'e' && firstArgArray[1] == '!') {
 			sendMessage(event, "Invalid command. Type ``e!help`` to get the help menu.");
 			return;
 		}
@@ -196,6 +226,26 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 		EmbedBuilder currencyExchangeEmbedBuilder = embedTemplate.buildEmbed(guildName);
 		
 		sendEmbedMessage(event, currencyExchangeEmbedBuilder);
+		return;
+	}
+	
+	private void timer(MessageReceivedEvent event, long minutes){
+		if(minutes < 0) {
+			throw new IllegalArgumentException();
+		}
+		
+		sendMessage(event, minutes +" minute(s) timer has been set for " + event.getAuthor().getAsMention() + ".");
+		long milliseconds = minutes*60000;
+		
+		Timer timer = new Timer();
+		TimerTask timerTask = new TimerTask() {
+			@Override
+			public void run() {
+				sendMessage(event, minutes + " minute(s) time is completed " + event.getAuthor().getAsMention() + ".");
+				return;
+			}
+		};
+		timer.schedule(timerTask, milliseconds);
 		return;
 	}
 

@@ -3,7 +3,7 @@ package com.eislyn.IAmNotARobot.domain;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.eislyn.IAmNotARobot.dataAccessAPI.HttpConnector;
+import com.eislyn.IAmNotARobot.dataAccess.HttpConnector;
 
 import io.github.cdimascio.dotenv.Dotenv;
 

@@ -6,7 +6,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.eislyn.IAmNotARobot.dataAccessAPI.HttpConnector;
+import com.eislyn.IAmNotARobot.dataAccess.HttpConnector;
 
 /**
  * Get the response from HttpConnector class and map it into a list of PartOfSpeech objects,
