@@ -1,8 +1,6 @@
 package com.eislyn.IAmNotARobot.app;
 
 import com.eislyn.IAmNotARobot.domain.Controller;
-import com.eislyn.IAmNotARobot.ui.GuildMemberJoin;
-import com.eislyn.IAmNotARobot.ui.GuildMemberRemove;
 import com.eislyn.IAmNotARobot.ui.MessageReceived;
 
 import io.github.cdimascio.dotenv.Dotenv;
@@ -100,8 +98,6 @@ public class JDASetup {
 		
 		Controller controller = new Controller();
 		jdaBuilder.addEventListeners(new MessageReceived(controller, PREFIX));
-		jdaBuilder.addEventListeners(new GuildMemberJoin());
-		jdaBuilder.addEventListeners(new GuildMemberRemove());
 
 		jda = jdaBuilder.build();
 		jda.awaitStatus(Status.CONNECTED);

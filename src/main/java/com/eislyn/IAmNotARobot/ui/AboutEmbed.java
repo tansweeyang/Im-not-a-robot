@@ -1,5 +1,10 @@
 package com.eislyn.IAmNotARobot.ui;
 
+/**
+ * Creates a about embed using EmbedTemplate by overriding abstract methods.
+ * @author Eislyn
+ * @since 22/10/2022
+ */
 public class AboutEmbed extends EmbedTemplate{
 
 	@Override

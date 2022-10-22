@@ -6,6 +6,11 @@ import java.util.List;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Member;
 
+/**
+ * Creates a help embed using EmbedTemplate by overriding abstract methods.
+ * @author Eislyn
+ * @since 22/10/2022
+ */
 public class UserEmbed extends EmbedTemplate {
 	// Passed in
 	private Member member;
@@ -20,6 +25,10 @@ public class UserEmbed extends EmbedTemplate {
 	private String joinDate;
 	private String createTime;
 
+	/**
+	 * Generates information from member and formats it.
+	 * @param member
+	 */
 	public UserEmbed(Member member) {
 		this.member = member;
 		this.memberTag = member.getAsMention();
@@ -62,6 +71,10 @@ public class UserEmbed extends EmbedTemplate {
 		embedBuilder.addField("▼__Roles__", generateRolesString() + "----------------------------------------------------------------------------", false);
 	}
 
+	/**
+	 * Generates a string from the list of activities from the member.
+	 * @return activitesString
+	 */
 	private String generatesActivitiesString() {
 		List<Activity> activities = null;
 		String activitesString = "";
@@ -81,6 +94,10 @@ public class UserEmbed extends EmbedTemplate {
 		return activitesString;
 	}
 
+	/**
+	 * Generates a string from the list of roles from the member.
+	 * @return rolesString
+	 */
 	private String generateRolesString() {
 		List<String> roles = new ArrayList<String>();
 		String rolesString = "";

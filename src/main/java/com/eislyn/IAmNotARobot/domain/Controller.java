@@ -40,7 +40,7 @@ public class Controller {
 	 * Directs Dictionary class to get definitions.
 	 * @param guildName Discord guild name
 	 * @param word Word to get definition
-	 * @return dictionaryEmbedBuilder Dictionary embed
+	 * @return partOfSpeechList A list of PartOfSpeech objects
 	 */
 	public List<PartOfSpeech> dictionary(String word) {
 		if(word == null || word == "") {
@@ -58,7 +58,7 @@ public class Controller {
 	 * @param baseCurrency Base currency to exchange
 	 * @param targetCurrency Target currency to exchange to
 	 * @param amountToExchange Amount to exchange 
-	 * @return currencyExchangeEmbedBuilder Output embed builder
+	 * @return currency Mapped currency class
 	 */
 	public Currency exchangeCurrency(String baseCurrency, String targetCurrency, double amountToExchange) throws JSONException{
 		if(baseCurrency == null || baseCurrency == "" || targetCurrency == null || targetCurrency == "" || amountToExchange < 0) {
@@ -71,6 +71,11 @@ public class Controller {
 		return currency;
 	}
 	
+	/**
+	 * Directs Time class to format time and date given a time zone name or id.
+	 * @param timeZone The time zone name or id
+	 * @return 
+	 */
 	public String currentDateAndTime(String timeZone) {
 		if(timeZone == null || timeZone == "") {
 			throw new IllegalArgumentException();

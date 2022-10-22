@@ -1,5 +1,4 @@
 com.eislyn.IAmNotARobot.app
-com.eislyn.IAmNotARobot.dataAccessAPI
-com.eislyn.IAmNotARobot.dataService
+com.eislyn.IAmNotARobot.dataAccess
 com.eislyn.IAmNotARobot.domain
 com.eislyn.IAmNotARobot.ui

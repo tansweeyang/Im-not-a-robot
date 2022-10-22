@@ -31,7 +31,7 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 	}
 
 	/**
-	 * Overrides onMessageReceived in ListenerAdapter to receive input from discord and checks with supported commands, do not change method name.
+	 * Overrides onMessageReceived in ListenerAdapter to receive input from discord and checks with supported commands, do not change method name, must return after the operation ends to stop typing. 
 	 */
 	@Override
 	public void onMessageReceived(MessageReceivedEvent event) {
@@ -240,7 +240,7 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 	}
 	
 	/**
-	 * 
+	 * converts currency from baseCurrency to targetCurrency given amountToCOnvert.
 	 * @param event
 	 * @param baseCurrency
 	 * @param targetCurrency
@@ -258,6 +258,11 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 		return;
 	}
 	
+	/**
+	 * Schedules a timer given number of  minutes.
+	 * @param event
+	 * @param minutes
+	 */
 	private void timer(MessageReceivedEvent event, long minutes){
 		if(minutes < 0) {
 			throw new IllegalArgumentException();
@@ -279,7 +284,7 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 	}
 
 	/**
-	 * sends a message in discord event channel with the message given.
+	 * sends a message in discord event channel with the message given, must return to stop typing.
 	 * @param event MessageReceivedEvent
 	 * @param message message to send
 	 */
@@ -290,7 +295,7 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 	}
 
 	/**
-	 * Sends an embed in discord event channel with the embedBuilder given.
+	 * Sends an embed in discord event channel with the embedBuilder given, must return to stop typing.
 	 * @param event MessageReceivedEvent
 	 * @param embed embedBuilder to send
 	 */
