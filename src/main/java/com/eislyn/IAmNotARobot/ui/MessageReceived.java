@@ -13,7 +13,6 @@ import com.eislyn.IAmNotARobot.domain.PartOfSpeech;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
-import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -174,7 +173,7 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 		else if(args[0].equalsIgnoreCase(prefix + "about")) {
 			if(args.length == 1) {
 				EmbedTemplate aboutEmbed = new AboutEmbed();
-				EmbedBuilder aboutEmbedBuilder = aboutEmbed.buildEmbed("I'm not a robot(Eislyn)");
+				EmbedBuilder aboutEmbedBuilder = aboutEmbed.buildEmbed("I'm not a robot (Eislyn)");
 				sendEmbedMessage(event, aboutEmbedBuilder);
 				return;
 			}

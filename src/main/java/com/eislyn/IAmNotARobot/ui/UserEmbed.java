@@ -59,7 +59,7 @@ public class UserEmbed extends EmbedTemplate {
 						+ onlineStatus + "\n" + "Join Date: " + joinDate + "\n" + "Create Date: " + createTime + "\r\n----------------------------------------------------------------------------",
 				false);
 		embedBuilder.addField("▼__Activities__", generatesActivitiesString() + "----------------------------------------------------------------------------", false);
-		embedBuilder.addField("▼__Roles__", generateRolesString() + "----------------------------------------------------------------------------", true);
+		embedBuilder.addField("▼__Roles__", generateRolesString() + "----------------------------------------------------------------------------", false);
 	}
 
 	private String generatesActivitiesString() {
