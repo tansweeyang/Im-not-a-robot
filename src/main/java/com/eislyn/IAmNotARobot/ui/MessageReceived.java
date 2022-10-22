@@ -12,6 +12,8 @@ import com.eislyn.IAmNotARobot.domain.Currency;
 import com.eislyn.IAmNotARobot.domain.PartOfSpeech;
 
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -21,8 +23,8 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
  * @since 15/10/2022
  */
 public class MessageReceived extends ListenerAdapter implements EventListener {
-	Controller controller;
-	String prefix;
+	private Controller controller;
+	private String prefix;
 
 	public MessageReceived(Controller controller, String prefix) {
 		this.controller = controller;
@@ -40,12 +42,14 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 
 		char[] firstArgArray = args[0].toCharArray();
 		
+		String guildName = event.getGuild().getName();
+		
 		if (event.getAuthor().isBot() == true) {
 			return;
 		}
 		else if (args[0].equalsIgnoreCase(prefix + "help")) {
 			if (args.length == 1) {
-				help(event, event.getGuild().getName());
+				help(event, guildName);
 				return;
 			}
 			else {
@@ -78,7 +82,7 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 			if(args.length == 2) {
 				String word = args[1];
 				try {
-					dictionary(event, event.getGuild().getName(), word);
+					dictionary(event, guildName, word);
 					return;
 				}catch (JSONException e) {
 					sendMessage(event,  "Ops, cannot find this word in the dictionary!");
@@ -149,7 +153,33 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 				timer(event, minutes);
 				return;
 			} catch(IllegalArgumentException e) {
-				sendMessage(event, "Illegal timer command. Type ``e!timer minutes`` to set a ping timer in number of minutes. Minutes must be in Integers only.");
+				sendMessage(event, "Invalid timer command. Type ``e!timer minutes`` to set a ping timer in number of minutes. Minutes must be in Integers only.");
+				return;
+			}
+		}
+		else if(args[0].equalsIgnoreCase(prefix + "info")){
+			if(args.length == 2) {
+				Member member = event.getGuild().getMemberById(args[1].replace("<@", "").replace(">", ""));
+				
+				EmbedTemplate userEmbed = new UserEmbed(member);
+				EmbedBuilder userEmbedBuilder = userEmbed.buildEmbed(guildName);
+				sendEmbedMessage(event, userEmbedBuilder);
+				return;
+			}
+			else {
+				sendMessage(event, "Invalid info command. Type ``e!info @user`` to get the server info of a user.");
+				return;
+			}
+		}
+		else if(args[0].equalsIgnoreCase(prefix + "about")) {
+			if(args.length == 1) {
+				EmbedTemplate aboutEmbed = new AboutEmbed();
+				EmbedBuilder aboutEmbedBuilder = aboutEmbed.buildEmbed("I'm not a robot(Eislyn)");
+				sendEmbedMessage(event, aboutEmbedBuilder);
+				return;
+			}
+			else {
+				sendMessage(event, "Invalid about command. Type ``e!about`` to get info about this bot and its developer.");
 				return;
 			}
 		}

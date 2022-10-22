@@ -53,4 +53,10 @@ public class DictionaryEmbed extends EmbedTemplate{
 		}
 		embedBuilder.addField("--------------------------------------------------------------------------------------------------", "", false);
 	}
+
+	@Override
+	public void setThumbanail() {
+		// TODO Auto-generated method stub
+		
+	}
 }

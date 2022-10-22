@@ -11,6 +11,7 @@ import net.dv8tion.jda.api.JDA.Status;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
+import net.dv8tion.jda.api.utils.ChunkingFilter;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
 
@@ -79,13 +80,16 @@ public class JDASetup {
 		JDABuilder jdaBuilder = JDABuilder.createLight(token).setActivity(Activity.playing("Type e!help for commands"));
 
 		jdaBuilder.setAutoReconnect(true);
-		jdaBuilder.enableIntents(GatewayIntent.MESSAGE_CONTENT);
 		jdaBuilder.enableIntents(GatewayIntent.GUILD_MEMBERS);
 		jdaBuilder.enableIntents(GatewayIntent.GUILD_PRESENCES);
 		jdaBuilder.enableIntents(GatewayIntent.GUILD_VOICE_STATES);
 		jdaBuilder.enableIntents(GatewayIntent.GUILD_MESSAGES);
+		jdaBuilder.enableIntents(GatewayIntent.MESSAGE_CONTENT);
 		jdaBuilder.enableIntents(GatewayIntent.GUILD_INVITES);
+		jdaBuilder.enableIntents(GatewayIntent.DIRECT_MESSAGES);
+		jdaBuilder.enableIntents(GatewayIntent.GUILD_EMOJIS_AND_STICKERS);
 		jdaBuilder.enableIntents(GatewayIntent.GUILD_BANS);
+
 		jdaBuilder.enableCache(CacheFlag.VOICE_STATE);
 		jdaBuilder.enableCache(CacheFlag.ACTIVITY);
 		jdaBuilder.enableCache(CacheFlag.ONLINE_STATUS);

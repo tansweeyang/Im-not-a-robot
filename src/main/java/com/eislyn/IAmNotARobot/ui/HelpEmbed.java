@@ -44,4 +44,10 @@ public class HelpEmbed extends EmbedTemplate{
 				+ "-----------------------------------------------------------------------------------------------\r\n"
 				+ "", false);
 	}
+
+	@Override
+	public void setThumbanail() {
+		// TODO Auto-generated method stub
+		
+	}
 }

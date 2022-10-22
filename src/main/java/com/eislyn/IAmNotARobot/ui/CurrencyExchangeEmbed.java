@@ -44,4 +44,9 @@ public class CurrencyExchangeEmbed extends EmbedTemplate{
 		embedBuilder.addField("Converted amount", currency.getExchangedAmount() + currency.getCode(), false);
 		embedBuilder.addField("Last updated", currency.getLastUpdated(), false);
 	}
+
+	@Override
+	public void setThumbanail() {
+		// TODO Auto-generated method stub	
+	}
 }
