@@ -29,4 +29,4 @@ Discord Invite link: [ https://discord.com/oauth2/authorize?client_id=9786494048
 3. API connection.
 4. Json parsing. 
 5. Full application testing including unit testing and integration testing. 
-6. Importance of using Git to version control. 
+6. Git to version control. 
