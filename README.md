@@ -24,7 +24,7 @@ Discord Invite link: [ https://discord.com/oauth2/authorize?client_id=9786494048
 2. ``e!about`` : Gets info about this bot and its developer.
 
 # Things I learnt
-1. Implementation of layered architecture.
+1. Implementation of 4-tier layered architecture.
 2. Maven to manage dependencies.
 3. API connection.
 4. Json parsing. 
