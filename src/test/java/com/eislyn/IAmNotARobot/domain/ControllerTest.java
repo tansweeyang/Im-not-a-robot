@@ -28,7 +28,7 @@ public class ControllerTest {
 	@SuppressWarnings("unused")
 	private Object[] paramTestTranslate() {
 		return new Object[] {
-			new Object[] {"fr", "hello", "bonjour"},
+			new Object[] {"fr", "hello", "salut"},
 			new Object[] {"en", "bonjour", "hello"},
 			new Object[] {"zh", "hello", "你好"},
 			new Object[] {"en", "你好", "Hello"}			
