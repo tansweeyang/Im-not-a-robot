@@ -1,6 +1,6 @@
 # Im-not-a-robot
 
-*I'm not a robot is a multipurpose discord bot equipped with utility tools. Major tools includes a translator, a dictionary, a currency coverter and a timer. No setup is required to use the bot.*
+*I'm not a robot is a multipurpose discord bot equipped with utility tools. Major tools includes a translator, a dictionary, a currency converter and a timer. No setup is required to use the bot.*
 
 Discord Invite link: [ https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&scope=bot ]
 
