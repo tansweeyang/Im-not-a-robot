@@ -25,7 +25,7 @@ public class DictionaryEmbed extends EmbedTemplate{
 	@Override
 	public void setTitle() {
 		word = word.substring(0, 1).toUpperCase() + word.substring(1);
-		embedBuilder.setTitle(word + "\r\n--------------------------------------------------------------------------------------");
+		embedBuilder.setTitle(word + "\r\n-------------------------------------------------------------------------");
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public class DictionaryEmbed extends EmbedTemplate{
 			}
 			embedBuilder.addField(fieldName, fieldValue, false);
 		}
-		embedBuilder.addField("--------------------------------------------------------------------------------------------------", "", false);
+		embedBuilder.addField("------------------------------------------------------------------------------------", "", false);
 	}
 
 	@Override

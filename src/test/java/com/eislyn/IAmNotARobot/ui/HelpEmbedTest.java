@@ -20,27 +20,27 @@ public class HelpEmbedTest {
 		EmbedBuilder expectedEmbedBuilder = new EmbedBuilder();
 		expectedEmbedBuilder.setAuthor("Server Name");
 		expectedEmbedBuilder.setTitle("Help Menu");
-		expectedEmbedBuilder.setDescription("-----------------------------------------------------------------------------------------------\r\n"
+		expectedEmbedBuilder.setDescription("-------------------------------------------------------------------------------------\r\n"
 				+ "Description\r\n"
 				+ "I'm not a robot is a multipurpose discord bot equipped with utility tools. No setup is required to use the bot.\r\n"
-				+ "-----------------------------------------------------------------------------------------------");
+				+ "-------------------------------------------------------------------------------------");
 		expectedEmbedBuilder.addField("Prefix and help", 
 				  "1. ``e!``: Type this in front of a command.\r\n"
 				+ "2. ``e!help``:  Gets a help menu.\r\n"
 				+ "3. ``e!helpts``: Gets the full translation supported languages list.\r\n"
 				+ "4. ``e!helpct``: Gets the currency table list.\r\n"
 				+ "5. ``e!helptime``: Gets the time zone name and code list.\r\n"
-				+ "-----------------------------------------------------------------------------------------------", false);
+				+ "-------------------------------------------------------------------------------------", false);
 		expectedEmbedBuilder.addField("Core Utility Commands", 
 				  "1. ``e!ts targetLanguage message``: Auto detects a language and translates the message to the target language.\r\n"
 				+ "2. ``e!d word``: Gets the definition of a English word.\r\n"
 				+ "3. ``e!e baseCurrency targetCurrency amountToExchange``: Translate a currency from one to another.\r\n"
 				+ "4. ``e!time timeZoneName / e!time timeZoneCode``: Gets the current date and time from a time zone.\r\n"
-				+ "5. ``e!timer minutes``: Set a ping timer in number of minutes.\r\n"				+ "-----------------------------------------------------------------------------------------------", false);
+				+ "5. ``e!timer minutes``: Set a ping timer in number of minutes.\r\n" + "-------------------------------------------------------------------------------------", false);
 		expectedEmbedBuilder.addField("Other Commands", 
 				  "1. ``e!info @user``: Gets the server info of a user.\r\n"
 				+ "2. ``e!about``: Gets info about this bot and its developer.\r\n"
-				+ "-----------------------------------------------------------------------------------------------\r\n"
+				+ "-------------------------------------------------------------------------------------\r\n"
 				+ "", false);
 		expectedEmbedBuilder.setFooter("Created by Eislyn", "https://images-ext-1.discordapp.net/external/Eaa_hmN5uh9n2NH8FMUTK1WgHa-5dTGo2Ain7s6VSI8/https/static.boredpanda.com/blog/wp-content/uploads/2020/07/expressive-cat-nana-1-21-5f16d009589a4__700.jpg");
 		String expectedEmbedBuilderString = expectedEmbedBuilder.build().toData().toString();

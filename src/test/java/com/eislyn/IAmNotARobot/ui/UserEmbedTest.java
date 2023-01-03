@@ -87,13 +87,13 @@ public class UserEmbedTest {
 		expectedUserEmbedBuilder.setAuthor("Server Name");
 		expectedUserEmbedBuilder.setTitle("User Information");
 		expectedUserEmbedBuilder.setThumbnail("https://img-9gag-fun.9cache.com/photo/apGgbv9_460s.jpg");
-		expectedUserEmbedBuilder.setDescription("----------------------------------------------------------------------------\r\n" + "User info of " + "<@Adam>" + "\r\n----------------------------------------------------------------------------");
+		expectedUserEmbedBuilder.setDescription("--------------------------------------------------------------------\r\n" + "User info of " + "<@Adam>" + "\r\n--------------------------------------------------------------------");
 		expectedUserEmbedBuilder.addField("▼__Info__",
 				"Name: " + "Adam" + "\n" + "Nickname: " + "AdamNickName" + "\n" + "Id: " + "12345" + "\n" + "Online Status: "
-						+ "Online" + "\n" + "Join Date: " + OffsetDateTime.MAX + "\n" + "Create Date: " + OffsetDateTime.MAX + "\r\n----------------------------------------------------------------------------",
+						+ "Online" + "\n" + "Join Date: " + OffsetDateTime.MAX + "\n" + "Create Date: " + OffsetDateTime.MAX + "\r\n--------------------------------------------------------------------",
 				false);
-		expectedUserEmbedBuilder.addField("▼__Activities__", "Playing: a game\n" + "----------------------------------------------------------------------------", false);
-		expectedUserEmbedBuilder.addField("▼__Roles__", "" + "----------------------------------------------------------------------------", false);
+		expectedUserEmbedBuilder.addField("▼__Activities__", "Playing: a game\n" + "--------------------------------------------------------------------", false);
+		expectedUserEmbedBuilder.addField("▼__Roles__", "" + "--------------------------------------------------------------------", false);
 		
 		assertEquals(expectedUserEmbedBuilder.build().toData().toPrettyString(), actualUserEmbedBuilder.build().toData().toPrettyString());
 	}

@@ -58,17 +58,17 @@ public class UserEmbed extends EmbedTemplate {
 
 	@Override
 	public void setDescription() {
-		embedBuilder.setDescription("----------------------------------------------------------------------------\r\n" + "User info of " + memberTag + "\r\n----------------------------------------------------------------------------");
+		embedBuilder.setDescription("--------------------------------------------------------------------\r\n" + "User info of " + memberTag + "\r\n--------------------------------------------------------------------");
 	}
 
 	@Override
 	public void addField() {
 		embedBuilder.addField("▼__Info__",
 				"Name: " + name + "\n" + "Nickname: " + nickname + "\n" + "Id: " + memberId + "\n" + "Online Status: "
-						+ onlineStatus + "\n" + "Join Date: " + joinDate + "\n" + "Create Date: " + createTime + "\r\n----------------------------------------------------------------------------",
+						+ onlineStatus + "\n" + "Join Date: " + joinDate + "\n" + "Create Date: " + createTime + "\r\n--------------------------------------------------------------------",
 				false);
-		embedBuilder.addField("▼__Activities__", generatesActivitiesString() + "----------------------------------------------------------------------------", false);
-		embedBuilder.addField("▼__Roles__", generateRolesString() + "----------------------------------------------------------------------------", false);
+		embedBuilder.addField("▼__Activities__", generatesActivitiesString() + "--------------------------------------------------------------------", false);
+		embedBuilder.addField("▼__Roles__", generateRolesString() + "--------------------------------------------------------------------", false);
 	}
 
 	/**
