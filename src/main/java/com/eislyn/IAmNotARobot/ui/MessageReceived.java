@@ -237,6 +237,7 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 		EmbedTemplate embedTemplate = new DictionaryEmbed(partOfSpeechList, word);
 		EmbedBuilder dictionaryEmbedBuilder = embedTemplate.buildEmbed(guildName);
 		sendEmbedMessage(event, dictionaryEmbedBuilder);
+		return;
 	}
 	
 	/**

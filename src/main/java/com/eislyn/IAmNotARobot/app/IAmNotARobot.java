@@ -1,11 +1,7 @@
 package com.eislyn.IAmNotARobot.app;
 
-import java.util.Scanner;
-
-import net.dv8tion.jda.api.JDA;
-
 /**
- * The main class of IAmNotARobot discord bot that starts the applciation.
+ * The main class of IAmNotARobot discord bot that starts the application.
  * @author Eislyn
  * 15/10/2022
  */
@@ -19,18 +15,26 @@ public class IAmNotARobot {
 		JDASetup jdaSetup = JDASetup.getInstance();
 		jdaSetup.setupJDA();
 		
-		JDA jda = jdaSetup.getJda();
-		
-		System.out.print("Type q to stop appplication: ");
-		Scanner scanner = new Scanner(System.in);
-		String input = scanner.next();
-	
-		if(input.equals("q")) {
-			System.out.println("Application is quitting...");
-			jda.shutdownNow();
-		}
-		scanner.close();
-		return;
+/**
+ * Commented out for hosting to avoid NoSuchElementException error.
+ */
+//		JDA jda = jdaSetup.getJda();
+//		Scanner scanner;
+//		String input=null;
+//		
+//		do {
+//			System.out.print("Type q to stop appplication: ");
+//			scanner = new Scanner(System.in);
+//			input = scanner.next();
+//			
+//			if(input.equals("q")) {
+//				System.out.println("Application is quitting...");
+//				jda.shutdownNow();
+//			}
+//		}while(input.equals("q")==false);
+//		
+//		scanner.close();
+//		return;	
 	}
 
 }
