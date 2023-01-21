@@ -34,23 +34,23 @@ https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&
 - **Time Help:** To get a list of supported time zones for the time feature, type `e!helptime`.
 
 ### Core Utility Commands
-- **
-Translator:** To translate a message to a specific language, type e!ts targetLanguage message. The bot will automatically detect the source language.
+- **Translator:** To translate a message to a specific language, type e!ts targetLanguage message. The bot will automatically detect the source language.
+- **Dictionary:** To get the definition of an English word, type e!d word.
+- **Currency Converter:** To convert one currency to another, type e!e baseCurrency targetCurrency.
+- **Time:** To get the current time from a specific time zone, type e!time timeZoneName or e!time timeZoneCode.
+- **Timer:** To set a timer, type e!timer minutes. The bot will send a message when the timer is up.
 
-Dictionary: To get the definition of an English word, type e!d word.
-Currency Converter: To convert one currency to another, type e!e baseCurrency targetCurrency.
-Time: To get the current time from a specific time zone, type e!time timeZoneName or e!time timeZoneCode.
-Timer: To set a timer, type e!timer minutes. The bot will send a message when the timer is up.
-Other Commands
-User Info: To get information about a specific user, type e!info @user.
-About: To get information about the bot and its developer, type e!about.
-Things I learnt
-Implementation of 4-tier layered architecture.
-Using Maven to manage dependencies.
-API connection.
-JSON parsing.
-Unit testing and intergration testing using JUnit.
-Using Git for version control.
+### Other Commands
+- **User Info:** To get information about a specific user, type e!info @user.
+- **About:** To get information about the bot and its developer, type e!about.
+
+### Things I learnt
+- Implementation of 4-tier layered architecture.
+- Using Maven to manage dependencies.
+- API connection.
+- JSON parsing.
+- Unit testing and intergration testing using JUnit.
+- Using Git for version control.
 
 ### Contribute
 If you would like to contribute to this project, please fork the repository and submit a pull request.
