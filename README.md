@@ -13,7 +13,7 @@
 ## Installation
 
 To add **Im-not-a-robot** to your Discord server, use the following invite link:
-https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&scope=bot
+[https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&scope=bot]
 
 ## Features
 
