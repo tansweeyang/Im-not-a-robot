@@ -9,6 +9,7 @@
 - [Things I learnt](#things-i-learnt)
 - [Contribute](#contribute)
 - [Support](#support)
+- [License](#license)
 
 ## Installation
 
@@ -57,3 +58,6 @@ If you would like to contribute to this project, please fork the repository and 
 
 ### Support
 If you have any questions or issues, please feel free to contact me or open an issue in this repository.
+
+### License
+This project is licensed under the MIT License - see the LICENSE file for details.
