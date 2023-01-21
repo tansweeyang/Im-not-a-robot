@@ -45,7 +45,7 @@ To add **Im-not-a-robot** to your Discord server, use the following invite link:
 - **User Info:** To get information about a specific user, type e!info @user.
 - **About:** To get information about the bot and its developer, type e!about.
 
-### Things I learnt
+## Things I learnt
 - Implementation of 4-tier layered architecture.
 - Using Maven to manage dependencies.
 - API connection.
@@ -53,11 +53,11 @@ To add **Im-not-a-robot** to your Discord server, use the following invite link:
 - Unit testing and intergration testing using JUnit.
 - Using Git for version control.
 
-### Contribute
+## Contribute
 If you would like to contribute to this project, please fork the repository and submit a pull request.
 
-### Support
+## Support
 If you have any questions or issues, please feel free to contact me or open an issue in this repository.
 
-### License
+## License
 This project is licensed under the MIT License - see the LICENSE file for details.
