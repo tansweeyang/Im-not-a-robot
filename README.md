@@ -9,7 +9,6 @@
 - [Things I learnt](#things-i-learnt)
 - [Contribute](#contribute)
 - [Support](#support)
-- [License](#license)
 
 ## Installation
 
