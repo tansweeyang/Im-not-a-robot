@@ -34,15 +34,15 @@ To add **Im-not-a-robot** to your Discord server, use the following invite link:
 - **Time Help:** To get a list of supported time zones for the time feature, type `e!helptime`.
 
 ### Core Utility Commands
-- **Translator:** To translate a message to a specific language, type e!ts targetLanguage message. The bot will automatically detect the source language.
-- **Dictionary:** To get the definition of an English word, type e!d word.
-- **Currency Converter:** To convert one currency to another, type e!e baseCurrency targetCurrency.
-- **Time:** To get the current time from a specific time zone, type e!time timeZoneName or e!time timeZoneCode.
-- **Timer:** To set a timer, type e!timer minutes. The bot will send a message when the timer is up.
+- **Translator:** To translate a message to a specific language, type `e!ts targetLanguage message`. The bot will automatically detect the source language.
+- **Dictionary:** To get the definition of an English word, type `e!d word`.
+- **Currency Converter:** To convert one currency to another, type `e!e baseCurrency targetCurrency`.
+- **Time:** To get the current time from a specific time zone, type `e!time timeZoneName` or `e!time timeZoneCode`.
+- **Timer:** To set a timer, type `e!timer minutes`. The bot will send a message when the timer is up.
 
 ### Other Commands
-- **User Info:** To get information about a specific user, type e!info @user.
-- **About:** To get information about the bot and its developer, type e!about.
+- **User Info:** To get information about a specific user, type `e!info @user`.
+- **About:** To get information about the bot and its developer, type `e!about`.
 
 ## Things I learnt
 - Implementation of 4-tier layered architecture.
