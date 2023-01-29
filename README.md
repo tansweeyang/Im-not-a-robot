@@ -4,6 +4,7 @@
 
 **Ideas for contribution:** 
 - Natural Language Processing + Prefix to replace boring commands
+- Code Optimizations
 - Change Software Architecture to Microservices
 
 ## Table of Contents
