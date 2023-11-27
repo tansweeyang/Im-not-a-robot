@@ -20,11 +20,17 @@ A multipurpose Discord bot that offers a variety of utility tools, which are tra
 - **User Info:** To get information about a specific user, type `e!info @user`.
 - **About:** To get information about the bot and its developer, type `e!about`.
 
-## Contribute
+## 📥 Installation (Run Locally)
+### 💻 Prerequisite
+- Java 8+
+
+### ⚙️ Setup
+
+## 👥 Contribute
 If you would like to contribute to this project, please fork the repository and submit a pull request.
 
-## Support
+## 🦻 Support
 If you have any questions or issues, please feel free to contact me or open an issue in this repository.
 
-## License
+## 📃 License
 This project is licensed under the MIT License - see the LICENSE file for details.
