@@ -26,6 +26,8 @@ A multipurpose Discord bot that offers a variety of utility tools, which are tra
 
 ### ⚙️ Setup
 
+## 📤 Deployment
+
 ## 👥 Contribute
 If you would like to contribute to this project, please fork the repository and submit a pull request.
 
