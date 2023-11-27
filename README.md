@@ -1,21 +1,10 @@
-# Im-not-a-robot
-A multipurpose Discord bot that offers a variety of utility tools, including a translator, dictionary, currency converter, and timer.
+# I'm not a robot
+A multipurpose Discord bot that offers a variety of utility tools, which are translator, dictionary, currency converter, view user info,and timer.
 
-## Invite link
+## 🧷 Invite link
 [https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&scope=bot]
 
-## Features
-
-- Translator
-- Dictionary
-- Currency Converter
-- Timer
-- User Info
-- About
-
-## Usage
-
-### Prefix and Help Commands
+## 🤖 Commands
 - **Prefix:** To use any of the bot's commands, type `e!` in front of the command.
 - **Help:** To get a general help menu, type `e!help`.
 - **Language Help:** To get a list of supported languages for the translator feature, type `e!helpts`.
