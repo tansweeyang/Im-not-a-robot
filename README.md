@@ -1,5 +1,5 @@
 # I'm not a robot
-A multipurpose Discord bot that offers a variety of utility tools, which are translator, dictionary, currency converter, view user info,and timer.
+A multipurpose Discord bot that offers a variety of utility tools, which are translator, dictionary, currency converter, view user info, and timer.
 
 ## 🧷 Invite link
 [https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&scope=bot]
