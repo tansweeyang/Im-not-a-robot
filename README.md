@@ -1,18 +1,7 @@
 # Im-not-a-robot
+A multipurpose Discord bot that offers a variety of utility tools, including a translator, dictionary, currency converter, and timer.
 
-**Im-not-a-robot** is a multipurpose Discord bot that offers a variety of utility tools, including a translator, dictionary, currency converter, and timer. The goal of this Discord bot is help worldwide connection easier. It can be easily added to your Discord server using the invite link provided below.
-
-## Table of Contents
-- [Installation](#installation)
-- [Features](#features)
-- [Usage](#usage)
-- [Things I learnt](#things-i-learnt)
-- [Contribute](#contribute)
-- [Support](#support)
-
-## Installation
-
-To add **Im-not-a-robot** to your Discord server, use the following invite link:
+## Invite link
 [https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&scope=bot]
 
 ## Features
