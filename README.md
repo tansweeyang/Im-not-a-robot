@@ -20,7 +20,7 @@ A multipurpose Discord bot that offers a variety of utility tools, which are tra
 - **User Info:** To get information about a specific user, type `e!info @user`.
 - **About:** To get information about the bot and its developer, type `e!about`.
 
-## 📥 Installation (Run Locally)
+## 📥 Installation
 ### 💻 Prerequisite
 - Java 8+
 
