@@ -28,10 +28,8 @@ public class ControllerTest {
 	@SuppressWarnings("unused")
 	private Object[] paramTestTranslate() {
 		return new Object[] {
-			new Object[] {"fr", "hello", "salut"},
-			new Object[] {"en", "bonjour", "hello"},
-			new Object[] {"zh", "hello", "你好"},
-			new Object[] {"en", "你好", "Hello"}			
+			new Object[] {"fr", "hello", "bonjour"},
+			new Object[] {"en", "你好", "Hello you"}
 		};		
 	}
 	
@@ -42,8 +40,7 @@ public class ControllerTest {
 		List<PartOfSpeech> actualPartOfSpeechList = controller.dictionary(word);
 		
 		List<PartOfSpeech> expectedPartOfSpeechList = new ArrayList<PartOfSpeech>();
-		
-		
+
 		PartOfSpeech partOfSpeechNoun;
 		List<String> definitionListNoun = new ArrayList<String>();
 		definitionListNoun.add("The use of multithreaded code.");

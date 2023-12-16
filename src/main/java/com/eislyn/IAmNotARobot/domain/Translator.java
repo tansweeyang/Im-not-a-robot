@@ -1,7 +1,14 @@
 package com.eislyn.IAmNotARobot.domain;
-
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.URI;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.eislyn.IAmNotARobot.dataAccess.HttpConnector;
 
@@ -43,15 +50,33 @@ public class Translator {
 	 * @return response Response from API
 	 */
 	public String translate() {
-		String deploymentKey = getDeploymentKey();
 		String urlStr = "";
 		try {
 			//API: Google script Translator class
-			urlStr = "https://script.google.com/macros/s/" + deploymentKey + "/exec" + "?q=" + URLEncoder.encode(text, "UTF-8") + "&target=" + langTo +"&source=" + langFrom;
+			urlStr = "https://665.uncovernet.workers.dev/translate?text=" + URLEncoder.encode(text, "UTF-8") + "&source_lang=" + langFrom + "&target_lang=" + langTo;
 		} catch (UnsupportedEncodingException e) {
 			return "Unsupported encoding";
 		}
-		return HttpConnector.getResponse(urlStr);
-	}
 
+		String jsonResponse = HttpConnector.getResponse(urlStr);
+
+		// Parse the JSON response
+		try {
+			ObjectMapper objectMapper = new ObjectMapper();
+			JsonNode rootNode = objectMapper.readTree(jsonResponse);
+
+			JsonNode responseNode = rootNode.path("response");
+			JsonNode translatedTextNode = responseNode.path("translated_text");
+
+			if (!translatedTextNode.isMissingNode()) {
+				// Return the translated text as a String
+				return translatedTextNode.asText();
+			} else {
+				return "Error occurred during translation";
+			}
+		} catch (IOException e) {
+			e.printStackTrace(); // Handle the exception or log it
+			return "Error occurred during translation";
+		}
+	}
 }

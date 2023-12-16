@@ -58,7 +58,7 @@ https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&
    - Rename the JAR file to ```bot.jar``` (required for Discloud).
    - Move the JAR file to the root directory.
 2. Pack and Upload:
-   - Zip the ```bot.jar``` file.
+   - Zip the application file and name it ```bot.zip```.
 3. Join the Discloud Server:
    - https://discord.gg/discloud-584490943034425391.
 4. Upload and Start:
