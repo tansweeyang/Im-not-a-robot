@@ -52,15 +52,15 @@ java -cp target/IAmNotARobot-0.0.1-SNAPSHOT.jar com.eislyn.IAmNotARobot.app.IAmN
 
 ## 📤 Deployment
 1. Prepare the JAR:
-- Run mvn package to build the project and generate a JAR file.
-- Rename the JAR file to bot.jar (required for Discloud).
+- Run ```mvn package``` to build the project and generate a JAR file.
+- Rename the JAR file to ```bot.jar``` (required for Discloud).
 2. Secure Your Environment:
-- Delete the .env file. Discloud uses its own environment variables, so the local file is no longer needed and shouldn't be exposed.
+- Delete the ``.env``` file.
 - Ensure you have configured Discloud environment variables for DISCORD_JDA_KEY, GOOGLE_SCRIPT_TRANSLATOR_DEPLOYMENT_ID, and CURRENCY_TRANSLATOR_API_KEY.
 3. Pack and Upload:
-- Zip the bot.jar file (e.g., zip -r bot.zip bot.jar).
+- Zip the bot.jar file.
 4. Join the Discloud Server:
-- Join the Discloud server: https://discord.gg/discloud-584490943034425391.
+- https://discord.gg/discloud-584490943034425391.
 5. Upload and Start:
 - In the Discloud server, type .upc (upload project) in the commands channel and follow the prompts to upload your zipped bot.zip file.
 - Once uploaded, type .start to launch the bot!
