@@ -6,7 +6,7 @@ A multipurpose Discord bot that offers a variety of utility tools, which are tra
 
 ## 👋 Get Started
 - **Prefix:** To use any of the bot's commands, type `e!` in front of the command.
-- **Help:** To get a general help menu, type `e!help`.
+- **Help:** To get the help menu, type `e!help`.
 - **Language Help:** To get a list of supported languages for the translator feature, type `e!helpts`.
 - **Currency Help:** To get a list of supported currencies for the currency converter feature, type `e!helpct`.
 - **Time Help:** To get a list of supported time zones for the time feature, type `e!helptime`.
