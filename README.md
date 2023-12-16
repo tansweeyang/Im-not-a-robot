@@ -57,14 +57,11 @@ https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&
    - Run ```mvn package``` to build the project and generate a JAR file.
    - Rename the JAR file to ```bot.jar``` (required for Discloud).
    - Move the JAR file to the root directory.
-2. Secure Your Environment:
-   - Delete the ```.env``` file.
-   - Ensure you have configured Disloud environment variables.
-3. Pack and Upload:
+2. Pack and Upload:
    - Zip the ```bot.jar``` file.
-4. Join the Discloud Server:
+3. Join the Discloud Server:
    - https://discord.gg/discloud-584490943034425391.
-5. Upload and Start:
+4. Upload and Start:
    - In the Discloud server, type ```.upc``` (upload project) in the commands channel and follow the prompts to upload your zipped ```bot.zip``` file.
    - Once uploaded, type ```.start``` to launch the bot!
 
