@@ -2,7 +2,7 @@
 A multipurpose Discord bot that offers a variety of utility tools, which are translator, dictionary, currency converter, view user info, and timer.
 
 ## 🧷 Invite link
-[https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&scope=bot]
+https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&scope=bot
 
 ## 👋 Get Started
 - **Prefix:** To use any of the bot's commands, type `e!` in front of the command.
@@ -27,43 +27,43 @@ A multipurpose Discord bot that offers a variety of utility tools, which are tra
 
 ### ⚙️ Setup
 1. Clone the repository: Open a terminal and clone the IAmNotARobot repository using the following command:
-```bash 
-git clone https://github.com/tansweeyang/IAmNotARobot.git
-```
+   ```bash 
+   git clone https://github.com/tansweeyang/IAmNotARobot.git
+   ```
 2. Install dependencies: Navigate to the cloned directory and run the following command to download all necessary libraries:
-```bash
-mvn install
-```
+   ```bash
+   mvn install
+   ```
 3. Follow the instructions from the websites to get your unique API keys:
-- Discord Jda API: https://discord.com/developers/docs/intro
-- Google Cloud Translation API: https://cloud.google.com/translate/docs/reference/rest
-- Currency Converter API: https://currencyapi.com/
+   - Discord Jda API: https://discord.com/developers/docs/intro
+   - Google Cloud Translation API: https://cloud.google.com/translate/docs/reference/rest
+   - Currency Converter API: https://currencyapi.com/
 4. Configure environment variables: Create a ```.env``` file in the root directory and add the following lines, replacing the placeholders with your actual values:
-```env
-DISCORD_JDA_KEY=<Your Discord JDA Bot Token>
-GOOGLE_SCRIPT_TRANSLATOR_DEPLOYMENT_ID=<Google Apps Script Translator Deployment ID>
-CURRENCY_TRANSLATOR_API_KEY=<Currency Translator API Key>
-```
+   ```env
+   DISCORD_JDA_KEY=<Your Discord JDA Bot Token>
+   GOOGLE_SCRIPT_TRANSLATOR_DEPLOYMENT_ID=<Google Apps Script Translator Deployment ID>
+   CURRENCY_TRANSLATOR_API_KEY=<Currency Translator API Key>
+   ```
 
 5. Run the application: Execute the main class with the following command:
-```bash
-java -cp target/IAmNotARobot-0.0.1-SNAPSHOT.jar com.eislyn.IAmNotARobot.app.IAmNotARobot
-```
+   ```bash
+   java -cp target/IAmNotARobot-0.0.1-SNAPSHOT.jar com.eislyn.IAmNotARobot.app.IAmNotARobot
+   ```
 
 ## 📤 Deployment
 1. Prepare the JAR:
-- Run ```mvn package``` to build the project and generate a JAR file.
-- Rename the JAR file to ```bot.jar``` (required for Discloud).
+   - Run ```mvn package``` to build the project and generate a JAR file.
+   - Rename the JAR file to ```bot.jar``` (required for Discloud).
 2. Secure Your Environment:
-- Delete the ``.env``` file.
-- Ensure you have configured Discloud environment variables for DISCORD_JDA_KEY, GOOGLE_SCRIPT_TRANSLATOR_DEPLOYMENT_ID, and CURRENCY_TRANSLATOR_API_KEY.
+   - Delete the ``.env``` file.
+   - Ensure you have configured Discloud environment variables for DISCORD_JDA_KEY, GOOGLE_SCRIPT_TRANSLATOR_DEPLOYMENT_ID, and CURRENCY_TRANSLATOR_API_KEY.
 3. Pack and Upload:
-- Zip the bot.jar file.
+   - Zip the bot.jar file.
 4. Join the Discloud Server:
-- https://discord.gg/discloud-584490943034425391.
+   - https://discord.gg/discloud-584490943034425391.
 5. Upload and Start:
-- In the Discloud server, type ```.upc``` (upload project) in the commands channel and follow the prompts to upload your zipped ```bot.zip``` file.
-- Once uploaded, type ```.start``` to launch the bot!
+   - In the Discloud server, type ```.upc``` (upload project) in the commands channel and follow the prompts to upload your zipped ```bot.zip``` file.
+   - Once uploaded, type ```.start``` to launch the bot!
 
 ## 👥 Contribute
 If you would like to contribute to this project, please fork the repository and submit a pull request.
