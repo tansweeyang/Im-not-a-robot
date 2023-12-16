@@ -21,7 +21,7 @@ public abstract class EmbedTemplate {
 		
 		setAuthor(authorName);
 		setTitle();
-		setThumbanail();
+		setThumbnail();
 		setDescription();
 		addField();
 		setFooter();
@@ -34,7 +34,7 @@ public abstract class EmbedTemplate {
 	}
 	
 	public abstract void setTitle();
-	public abstract void setThumbanail();
+	public abstract void setThumbnail();
 	public abstract void setDescription();
 	public abstract void addField();
 

@@ -13,7 +13,7 @@ public class AboutEmbed extends EmbedTemplate{
 	}
 
 	@Override
-	public void setThumbanail() {
+	public void setThumbnail() {
 		embedBuilder.setThumbnail("https://img-9gag-fun.9cache.com/photo/apGgbv9_460s.jpg");
 	}
 

@@ -55,7 +55,7 @@ public class DictionaryEmbed extends EmbedTemplate{
 	}
 
 	@Override
-	public void setThumbanail() {
+	public void setThumbnail() {
 		// TODO Auto-generated method stub
 		
 	}

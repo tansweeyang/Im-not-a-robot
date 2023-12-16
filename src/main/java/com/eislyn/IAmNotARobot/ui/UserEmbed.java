@@ -52,7 +52,7 @@ public class UserEmbed extends EmbedTemplate {
 	}
 
 	@Override
-	public void setThumbanail() {
+	public void setThumbnail() {
 		embedBuilder.setThumbnail(avatarUrl);
 	}
 

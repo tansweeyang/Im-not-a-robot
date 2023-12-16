@@ -46,7 +46,7 @@ public class CurrencyExchangeEmbed extends EmbedTemplate{
 	}
 
 	@Override
-	public void setThumbanail() {
-		// TODO Auto-generated method stub	
+	public void setThumbnail(){
+
 	}
 }
