@@ -1,5 +1,7 @@
 # I'm not a robot
-A multipurpose Discord bot that offers a variety of utility tools, which are translator, dictionary, currency converter, view user info, and timer.
+A multipurpose Discord bot that offers a variety of utility tools: **translator, dictionary, currency converter, view user info, and timer**.\
+\
+```Spoiler: It acts exactly like a robot.```
 
 ## 🧷 Invite link
 https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&scope=bot
@@ -54,11 +56,12 @@ https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&
 1. Prepare the JAR:
    - Run ```mvn package``` to build the project and generate a JAR file.
    - Rename the JAR file to ```bot.jar``` (required for Discloud).
+   - Move the JAR file to the root directory.
 2. Secure Your Environment:
-   - Delete the ``.env``` file.
-   - Ensure you have configured Discloud environment variables for DISCORD_JDA_KEY, GOOGLE_SCRIPT_TRANSLATOR_DEPLOYMENT_ID, and CURRENCY_TRANSLATOR_API_KEY.
+   - Delete the ```.env``` file.
+   - Ensure you have configured Disloud environment variables.
 3. Pack and Upload:
-   - Zip the bot.jar file.
+   - Zip the ```bot.jar``` file.
 4. Join the Discloud Server:
    - https://discord.gg/discloud-584490943034425391.
 5. Upload and Start:
