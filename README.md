@@ -62,8 +62,8 @@ java -cp target/IAmNotARobot-0.0.1-SNAPSHOT.jar com.eislyn.IAmNotARobot.app.IAmN
 4. Join the Discloud Server:
 - https://discord.gg/discloud-584490943034425391.
 5. Upload and Start:
-- In the Discloud server, type .upc (upload project) in the commands channel and follow the prompts to upload your zipped bot.zip file.
-- Once uploaded, type .start to launch the bot!
+- In the Discloud server, type ```.upc``` (upload project) in the commands channel and follow the prompts to upload your zipped ```bot.zip``` file.
+- Once uploaded, type ```.start``` to launch the bot!
 
 ## 👥 Contribute
 If you would like to contribute to this project, please fork the repository and submit a pull request.
