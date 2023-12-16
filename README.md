@@ -38,12 +38,10 @@ https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&
    ```
 3. Follow the instructions from the websites to get your unique API keys:
    - Discord Jda API: https://discord.com/developers/docs/intro
-   - Google Cloud Translation API: https://cloud.google.com/translate/docs/reference/rest
    - Currency Converter API: https://currencyapi.com/
 4. Configure environment variables: Create a ```.env``` file in the root directory and add the following lines, replacing the placeholders with your actual values:
    ```env
    DISCORD_JDA_KEY=<Your Discord JDA Bot Token>
-   GOOGLE_SCRIPT_TRANSLATOR_DEPLOYMENT_ID=<Google Apps Script Translator Deployment ID>
    CURRENCY_TRANSLATOR_API_KEY=<Currency Translator API Key>
    ```
 
