@@ -34,7 +34,7 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 	 * Overrides onMessageReceived in ListenerAdapter to receive input from discord and checks with supported commands, do not change method name, must return after the operation ends to stop typing. 
 	 */
 	@Override
-	public void onMessageReceived(MessageReceivedEvent event) {
+	public void onMessageReceived(MessageReceivedEvent event) { 
 		// split("\\s+") will split the string into string of array with separator as
 		// space or multiple spaces. \s+ is a regular expression for one or more spaces.
 		String[] args = event.getMessage().getContentRaw().split("\\s+");
@@ -43,9 +43,8 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 		
 		String guildName = event.getGuild().getName();
 		
-		if (event.getAuthor().isBot() == true) {
-			return;
-		}
+		if (event.getAuthor().isBot()) { return; }
+		
 		else if (args[0].equalsIgnoreCase(prefix + "help")) {
 			if (args.length == 1) {
 				help(event, guildName);
@@ -58,8 +57,7 @@ public class MessageReceived extends ListenerAdapter implements EventListener {
 		}
 		else if(args[0].equalsIgnoreCase(prefix + "ts")) {
 			if(args.length >= 3) {
-				String langTo = args[1];
-				translate(event, args, langTo);
+				translate(event, args, args[1]);
 				return;
 			}
 			else {
