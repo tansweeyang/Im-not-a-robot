@@ -6,8 +6,9 @@
 	<name>IAmNotARobot</name>
 
 	<properties>
-		<maven.compiler.source>19</maven.compiler.source>
-		<maven.compiler.target>19</maven.compiler.target>
+		<maven.compiler.source>21</maven.compiler.source>
+		<maven.compiler.target>21</maven.compiler.target>
+		<java.version>21</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -59,7 +60,7 @@
 		<dependency>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-surefire-plugin</artifactId>
-			<version>3.0.0-M7</version>
+			<version>3.2.3</version>
 			<type>maven-plugin</type>
 		</dependency>
 
@@ -78,13 +79,13 @@
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
-			<version>20220320</version>
+			<version>20230227</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.13.0</version> <!-- Use the latest version -->
+			<version>2.13.4.1</version> <!-- Use the latest version -->
 		</dependency>
 	</dependencies>
 

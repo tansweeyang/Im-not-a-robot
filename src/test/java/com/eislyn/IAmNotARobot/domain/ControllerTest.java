@@ -26,10 +26,11 @@ public class ControllerTest {
 	}
 	
 	@SuppressWarnings("unused")
+	// Please replace the expected results in this test after purchasing your own Google Cloud Translation API.
 	private Object[] paramTestTranslate() {
 		return new Object[] {
-			new Object[] {"fr", "hello", "bonjour"},
-			new Object[] {"en", "你好", "Hello you"}
+			new Object[] {"fr", "hello", "Sorry, translator API free trial is over. The other commands are fine."},
+			new Object[] {"en", "你好", "Sorry, translator API free trial is over. The other commands are fine."}
 		};		
 	}
 	
@@ -39,10 +40,10 @@ public class ControllerTest {
 		
 		List<PartOfSpeech> actualPartOfSpeechList = controller.dictionary(word);
 		
-		List<PartOfSpeech> expectedPartOfSpeechList = new ArrayList<PartOfSpeech>();
+		List<PartOfSpeech> expectedPartOfSpeechList = new ArrayList<>();
 
 		PartOfSpeech partOfSpeechNoun;
-		List<String> definitionListNoun = new ArrayList<String>();
+		List<String> definitionListNoun = new ArrayList<>();
 		definitionListNoun.add("The use of multithreaded code.");
 		partOfSpeechNoun = new PartOfSpeech("noun", definitionListNoun);
 		expectedPartOfSpeechList.add(partOfSpeechNoun);

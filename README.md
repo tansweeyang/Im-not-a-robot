@@ -24,8 +24,8 @@ https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&
 
 ## 📥 Installation
 ### 💻 Prerequisite
-- Java Development Kit (JDK) 19 or later
-- Maven 3.8.1 or later
+- Java Development Kit (JDK) 21 or later
+- Maven 3.8.5 or later
 
 ### ⚙️ Setup
 1. Clone the repository: Open a terminal and clone the IAmNotARobot repository using the following command:

@@ -1,28 +1,20 @@
 package com.eislyn.IAmNotARobot.domain;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.net.URI;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.eislyn.IAmNotARobot.dataAccess.HttpConnector;
-
 import io.github.cdimascio.dotenv.Dotenv;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.Objects;
+
 /**
- * Setups and stores the information necessary for Translator API, set deploymentKeyname, langTo and Text first before using the translate() method.
+ * Setups and stores the information necessary for Translator API, set deploymentKey name, langTo and Text first before using the method called translate.
  * @author Eislyn
  * @since 15/10/2022
  */
 public class Translator {
 	private final static String deploymentKeyName = "GOOGLE_SCRIPT_TRANSLATOR_DEPLOYMENT_ID";
-	private String langFrom = "";
-	private String langTo;
+    private String langTo;
 	private String text;
 	
 	public void setLangTo(String langTo) {
@@ -38,7 +30,7 @@ public class Translator {
 	 * @return deploymentKey
 	 */
 	private String getDeploymentKey() {
-		if(deploymentKeyName == null || deploymentKeyName == "") {
+		if(Objects.equals(deploymentKeyName, "")) {
 			throw new IllegalArgumentException();
 		}
 		Dotenv dotenv = Dotenv.load();
@@ -46,37 +38,21 @@ public class Translator {
 	}
 	
 	/**
-	 * Creates an URL string and get the response from HttpConnector
+	 * Creates URL string and get the response from HttpConnector
 	 * @return response Response from API
 	 */
 	public String translate() {
-		String urlStr = "";
-		try {
-			//API: Google script Translator class
-			urlStr = "https://665.uncovernet.workers.dev/translate?text=" + URLEncoder.encode(text, "UTF-8") + "&source_lang=" + langFrom + "&target_lang=" + langTo;
-		} catch (UnsupportedEncodingException e) {
-			return "Unsupported encoding";
+		String deploymentKey = getDeploymentKey();
+		String urlStr;
+        //API: Google script Translator class
+        final String langFrom = "";
+        urlStr = "https://script.google.com/macros/s/" + deploymentKey + "/exec" + "?q=" + URLEncoder.encode(text, StandardCharsets.UTF_8) + "&target=" + langTo +"&source=" + langFrom;
+
+        if (HttpConnector.getResponse(urlStr).contains("<!DOCTYPE html>")) {
+			return "Sorry, translator API free trial is over. The other commands are fine.";
 		}
-
-		String jsonResponse = HttpConnector.getResponse(urlStr);
-
-		// Parse the JSON response
-		try {
-			ObjectMapper objectMapper = new ObjectMapper();
-			JsonNode rootNode = objectMapper.readTree(jsonResponse);
-
-			JsonNode responseNode = rootNode.path("response");
-			JsonNode translatedTextNode = responseNode.path("translated_text");
-
-			if (!translatedTextNode.isMissingNode()) {
-				// Return the translated text as a String
-				return translatedTextNode.asText();
-			} else {
-				return "Error occurred during translation";
-			}
-		} catch (IOException e) {
-			e.printStackTrace(); // Handle the exception or log it
-			return "Error occurred during translation";
+		else {
+			return HttpConnector.getResponse(urlStr);
 		}
 	}
 }

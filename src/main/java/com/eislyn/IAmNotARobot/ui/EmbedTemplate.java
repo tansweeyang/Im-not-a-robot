@@ -16,7 +16,7 @@ public abstract class EmbedTemplate {
 	 * @return embedBuilder EmbedBuilder
 	 */
 	public final EmbedBuilder buildEmbed(String authorName) {
-		if(authorName == null || authorName == "")
+		if(authorName == null || authorName.isEmpty())
 			throw new IllegalArgumentException();
 		
 		setAuthor(authorName);
