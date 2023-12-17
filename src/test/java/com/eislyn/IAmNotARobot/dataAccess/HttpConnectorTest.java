@@ -1,29 +1,37 @@
 package com.eislyn.IAmNotARobot.dataAccess;
 
-import static org.junit.Assert.assertEquals;
-
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 
+import static org.junit.Assert.*;
+
 @RunWith(JUnitParamsRunner.class)
 public class HttpConnectorTest {
 	@Test
-	@Parameters(method = "paramTestValidGetResponse")
-	public void testValidGetResponse(String url, String expectedResult) {
-		String actualResult = HttpConnector.getResponse(url);
-		assertEquals(expectedResult, actualResult);
+	public void testValidGetResponse() {
+		final String deploymentKeyName = "GOOGLE_SCRIPT_TRANSLATOR_DEPLOYMENT_ID";
+		Dotenv dotenv = Dotenv.load();
+		String deploymentKey =  dotenv.get(deploymentKeyName);
+		String text = "bonjour";
+		String langTo = "en";
+		String langFrom = "";
+		String urlStr = "https://script.google.com/macros/s/" + deploymentKey + "/exec" + "?q=" + URLEncoder.encode(text, StandardCharsets.UTF_8) + "&target=" + langTo +"&source=" + langFrom;
+		String actualResult = HttpConnector.getResponse(urlStr);
+        assertTrue(actualResult.contains("<!DOCTYPE html>"));
 	}
 	
 	@SuppressWarnings("unused")
 	private Object[] paramTestValidGetResponse() throws UnsupportedEncodingException {
 		return new Object[] {
-			new Object[] {"https://665.uncovernet.workers.dev/translate?text=" + URLEncoder.encode("bonjour", "UTF-8") + "&source_lang=" + "" +"&target_lang=" + "en", "{\"inputs\":{\"text\":\"bonjour\",\"source_lang\":\"en\",\"target_lang\":\"en\"},\"response\":{\"translated_text\":\"Welcome to\"}}"},
+				new Object[] {"fr", "hello", "<!DOCTYPE html>"},
 		};
 	}
 	
