@@ -33,26 +33,30 @@ https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&
    ```
 2. Install dependencies: Navigate to the cloned directory and run the following command to download all necessary libraries:
    ```bash
-   mvn install
+   mvn clean install
    ```
 3. Follow the instructions from the websites to get your unique API keys:
    - Discord Jda API: https://discord.com/developers/docs/intro
    - Currency Converter API: https://currencyapi.com/
+
 4. Configure environment variables: Create a ```.env``` file in the root directory and add the following lines, replacing the placeholders with your actual values:
    ```env
    DISCORD_JDA_KEY=<Your Discord JDA Bot Token>
    CURRENCY_TRANSLATOR_API_KEY=<Currency Translator API Key>
    GOOGLE_SCRIPT_TRANSLATOR_DEPLOYMENT_ID=<Google Script Translator Deployment Key>
    ```
+   
+5. Package the application: Generate a JAR file:
+   ```mvn clean package```
 
-5. Run the application: Execute the main class with the following command:
+6. Run the application: Execute the main class with the following command:
    ```bash
    java -cp bot.jar com.eislyn.IAmNotARobot.app.IAmNotARobot
    ```
 
 ## 📤 Deployment
 1. Prepare the JAR:
-   - Run ```mvn deploy``` to generate a application zip file ready to be deployed.
+   - Run ```mvn clean deploy``` to generate a application zip file ready to be deployed.
    - A zipped application folder ```bot.zip``` will be created in your desktop.
 2. Join the Discloud Server:
    - https://discord.gg/discloud-584490943034425391.
