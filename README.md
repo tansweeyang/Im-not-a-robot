@@ -47,7 +47,7 @@ https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&
 
 5. Run the application: Execute the main class with the following command:
    ```bash
-   java -cp target/IAmNotARobot-0.0.1-SNAPSHOT.jar com.eislyn.IAmNotARobot.app.IAmNotARobot
+   java -cp bot.jar com.eislyn.IAmNotARobot.app.IAmNotARobot
    ```
 
 ## 📤 Deployment
