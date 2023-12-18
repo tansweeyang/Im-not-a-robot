@@ -63,7 +63,7 @@ https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&
 3. Upload and Start:
    - In the Discloud server, type ```.upc``` (upload project) in the commands channel and follow the prompts to upload your zipped ```bot.zip``` file.
    - Once uploaded, type ```.start``` to launch the bot!
-   - If you face any issue with deployment using Discloud, feel free to reach out to the highly active community or moderators in the server.
+   - If you face any issue with deployment using Discloud, feel free to reach out to Discloud's highly active community or moderators in the server.
 
 ## 👥 Contribute
 If you would like to contribute to this project, please fork the repository and submit a pull request.
