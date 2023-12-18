@@ -52,14 +52,11 @@ https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&
 
 ## 📤 Deployment
 1. Prepare the JAR:
-   - Run ```mvn package``` to build the project and generate a JAR file.
-   - Rename the JAR file to ```bot.jar``` (required for Discloud).
-   - Move the JAR file to the root directory.
-2. Pack and Upload:
-   - Zip the application file and name it ```bot.zip```.
-3. Join the Discloud Server:
+   - Run ```mvn deploy``` to generate a application zip file ready to be deployed.
+   - A zipped application folder ```bot.zip``` will be created in your desktop.
+2. Join the Discloud Server:
    - https://discord.gg/discloud-584490943034425391.
-4. Upload and Start:
+3. Upload and Start:
    - In the Discloud server, type ```.upc``` (upload project) in the commands channel and follow the prompts to upload your zipped ```bot.zip``` file.
    - Once uploaded, type ```.start``` to launch the bot!
 
