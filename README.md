@@ -1,6 +1,5 @@
 # I'm not a robot
 A multipurpose Discord bot that offers a variety of utility tools: **translator, dictionary, currency converter, view user info, and timer**.\
-\
 ```Spoiler: It acts exactly like a robot.```\
 ```❗ Currently, translation features are unavailable in the hosted version. Consider using the local version with your own API key configured in the .env file.```
 
