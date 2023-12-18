@@ -42,6 +42,7 @@ https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&
    ```env
    DISCORD_JDA_KEY=<Your Discord JDA Bot Token>
    CURRENCY_TRANSLATOR_API_KEY=<Currency Translator API Key>
+   GOOGLE_SCRIPT_TRANSLATOR_DEPLOYMENT_ID=<Google Script Translator Deployment Key>
    ```
 
 5. Run the application: Execute the main class with the following command:
