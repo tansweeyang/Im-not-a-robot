@@ -40,11 +40,10 @@ https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&
    - Currency Converter API: https://currencyapi.com/
 
 4. Configure environment variables: Create a ```.env``` file in the root directory and add the following lines, replacing the placeholders with your actual values:
-   ```env
-   DISCORD_JDA_KEY=YourTokenHere
-   CURRENCY_TRANSLATOR_API_KEY=YourTokenHere
-GOOGLE_SCRIPT_TRANSLATOR_DEPLOYMENT_ID=YourTokenHere
-   ```
+```env
+DISCORD_JDA_KEY=YourTokenHere
+CURRENCY_TRANSLATOR_API_KEY=YourTokenHere    GOOGLE_SCRIPT_TRANSLATOR_DEPLOYMENT_ID=YourTokenHere
+```
    
 5. Package the application: Generate a JAR file:
    ```mvn clean package```
