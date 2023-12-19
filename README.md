@@ -43,7 +43,7 @@ https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&
    ```env
    DISCORD_JDA_KEY=YourTokenHere
    CURRENCY_TRANSLATOR_API_KEY= YourTokenHere
-GOOGLE_SCRIPT_TRANSLATOR_DEPLOYMENT_KEY=YourTokenHere
+GOOGLE_SCRIPT_TRANSLATOR_DEPLOYMENT_ID=YourTokenHere
    ```
    
 5. Package the application: Generate a JAR file:
