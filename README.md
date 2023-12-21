@@ -1,8 +1,8 @@
 # I'm not a robot
 A multipurpose Discord bot that offers a variety of utility tools: **translator, dictionary, currency converter, view user info, and timer**.\
-```❗ Currently, translation features are unavailable in the hosted version. Consider using the local version with your own API key configured in the .env file.```
+```❗ Currently, translation feature are unavailable in the hosted version. Consider using the local version with your own API key configured in the .env file.```
 
-## 🧷 Bot Invite link
+## 🔗 Bot Invite link (Hosted Version)
 https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&scope=bot
 
 ## 👋 Get Started
