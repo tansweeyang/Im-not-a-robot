@@ -22,11 +22,5 @@ jobs:
           distribution: 'temurin'
           cache: maven  # Cache Maven dependencies for faster builds
 
-      - name: Create .env file
-        run: |
-          echo "MY_SECRET_KEY=${{ secrets.DISCORD_JDA_KEY }}" > .env
-          echo "ANOTHER_SECRET=${{ secrets.GOOGLE_SCRIPT_TRANSLATOR_DEPLOYMENT_ID }}" >> .env
-          echo "ANOTHER_SECRET=${{ secrets.CURRENCY_TRANSLATOR_API_KEY }}" >> .env
-
       - name: Build and test with Maven
         run: mvn clean package
