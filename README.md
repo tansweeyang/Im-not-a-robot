@@ -55,14 +55,26 @@ https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&
 
 ## 📤 Deployment
 1. Change the release version in pom.xml.
-2. Prepare the JAR:
-   - Run ```mvn clean package``` to generate a application zip file ready to be deployed.
+   ```xml
+   <version>Released Version</version>
+   ```
+2. Generate zip folder to deploy:
+   - Run the following command to generate a application zip file ready to be deployed.
+     ```bash
+     mvn clean package
+     ```
    - A zipped application folder ```bot.zip``` will be created in your desktop. The zip folder will contain the following three files: ```IAmNotARobot-Version.jar```, ```.env```, and ```discloud.config```
 3. Join the Discloud Server:
    - https://discord.gg/discloud-584490943034425391.
 4. Upload and Start:
-   - In the Discloud server, type ```.upc``` (upload project) in the commands channel and follow the prompts to upload your zipped ```bot.zip``` file.
-   - Once uploaded, type ```.start``` to launch the bot!
+   - In the Discloud server, type the following command in the commands channel and follow the prompts to upload your zipped ```bot.zip``` file.
+     ```bash
+     .upc
+     ```
+   - Once uploaded, type the following command to launch the bot!
+     ```bash
+     .start
+     ```
    - If you face any issue with deployment using Discloud, feel free to reach out to Discloud's highly active community or moderators in the server.
 
 ## 👥 Contribute
