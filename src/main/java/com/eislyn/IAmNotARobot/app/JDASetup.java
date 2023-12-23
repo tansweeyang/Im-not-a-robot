@@ -48,22 +48,23 @@ public class JDASetup {
 
 	/**
 	 * Gets the discord JDA token from .env with the given JDAKeyName.
-	 * @param JDAKeyName
-	 * @return
+	 * @return token
 	 */
 	private String getJDAToken() {
 		if(jdaKeyName == null || jdaKeyName == "") {
 			throw new IllegalArgumentException();
 		}
-		
-		Dotenv dotenv = Dotenv.load();
-		String token = dotenv.get(jdaKeyName);
+
+		String token = System.getenv(jdaKeyName);
+		if (token == null) {
+			Dotenv dotenv = Dotenv.load();  // Load Dotenv only if needed
+			token = dotenv.get(jdaKeyName);
+		}
 		return token;
 	}
 
 	/**
 	 * Setup and build the JDABuilder, manages layered architecture here, add or remove layer here.
-	 * @param token Discord JDA token
 	 * @return status Discord JDA connection status, will wait till STATUS.CONNECTED before returning 
 	 * @throws InterruptedException
 	 */

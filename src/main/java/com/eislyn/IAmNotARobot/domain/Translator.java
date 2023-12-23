@@ -33,8 +33,13 @@ public class Translator {
 		if(Objects.equals(deploymentKeyName, "")) {
 			throw new IllegalArgumentException();
 		}
-		Dotenv dotenv = Dotenv.load();
-		return dotenv.get(deploymentKeyName);
+
+		String deploymentKey = System.getenv(deploymentKeyName);
+		if (deploymentKey == null) {
+			Dotenv dotenv = Dotenv.load();  // Load Dotenv only if needed
+			deploymentKey = dotenv.get(deploymentKeyName);
+		}
+		return deploymentKey;
 	}
 	
 	/**

@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class PartOfSpeech {
 	private String partOfSpeech; 
-	private List<String> definitionList = new ArrayList<String>();
+	private List<String> definitionList;
 	
 	public PartOfSpeech(String partOfSpeech, List<String> definitionList) {
 		this.partOfSpeech = partOfSpeech;
@@ -27,13 +27,13 @@ public class PartOfSpeech {
 	
 	@Override
 	public String toString() {
-		String defintiionFull = "Part of speech: " + this.partOfSpeech + "\n";
+		String defintionFull = "Part of speech: " + this.partOfSpeech + "\n";
 		
 		for(String defitnionStr : definitionList) {
-			defintiionFull += "Definition: " + defitnionStr + "\n";
+			defintionFull += "Definition: " + defitnionStr + "\n";
 		}
 		
-		return defintiionFull;
+		return defintionFull;
 		
 	}
 

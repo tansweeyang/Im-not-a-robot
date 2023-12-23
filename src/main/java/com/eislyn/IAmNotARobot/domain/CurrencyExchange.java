@@ -30,8 +30,12 @@ public class CurrencyExchange {
 	 * @return
 	 */
 	private String getApiKey() {
-		Dotenv dotenv = Dotenv.load();
-		return dotenv.get(apiKeyName);
+		String deploymentKey = System.getenv(apiKeyName);
+		if (deploymentKey == null) {
+			Dotenv dotenv = Dotenv.load();  // Load Dotenv only if needed
+			deploymentKey = dotenv.get(apiKeyName);
+		}
+		return deploymentKey;
 	}
 
 	/**
