@@ -23,7 +23,7 @@ https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&
 
 ## 📥 Installation
 ### 💻 Prerequisite
-- Java Development Kit (JDK) 21 or later
+- Java Development Kit (JDK) 18 or later
 - Maven 3.8.5 or later
 
 ### ⚙️ Setup
@@ -38,31 +38,29 @@ https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&
 3. Follow the instructions from the websites to get your unique API keys:
    - Discord Jda API: https://discord.com/developers/docs/intro
    - Currency Converter API: https://currencyapi.com/
-
 4. Configure environment variables: Create a ```.env``` file in the root directory and add the following lines, replacing the placeholders with your actual values:
    ```env
    DISCORD_JDA_KEY=YourTokenHere
    CURRENCY_TRANSLATOR_API_KEY=YourTokenHere    
    GOOGLE_SCRIPT_TRANSLATOR_DEPLOYMENT_ID=YourTokenHere
    ```
-   
 5. Package the application: Generate a JAR file:
    ```bash
    mvn clean package
    ```
-
 6. Run the application: Execute the main class with the following command:
    ```bash
    java -cp bot.jar com.eislyn.IAmNotARobot.app.IAmNotARobot
    ```
 
 ## 📤 Deployment
-1. Prepare the JAR:
+1. Change the release version in pom.xml.
+2. Prepare the JAR:
    - Run ```mvn clean package``` to generate a application zip file ready to be deployed.
-   - A zipped application folder ```bot.zip``` will be created in your desktop.
-2. Join the Discloud Server:
+   - A zipped application folder ```bot.zip``` will be created in your desktop. The zip folder will contain the following three files: ```IAmNotARobot-Version.jar```, ```.env```, and ```discloud.config```
+3. Join the Discloud Server:
    - https://discord.gg/discloud-584490943034425391.
-3. Upload and Start:
+4. Upload and Start:
    - In the Discloud server, type ```.upc``` (upload project) in the commands channel and follow the prompts to upload your zipped ```bot.zip``` file.
    - Once uploaded, type ```.start``` to launch the bot!
    - If you face any issue with deployment using Discloud, feel free to reach out to Discloud's highly active community or moderators in the server.
