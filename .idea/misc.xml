@@ -9,5 +9,8 @@
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />
   </component>
+  <component name="ProjectResources">
+    <resource url="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2" location="$USER_HOME$/AppData/Local/JetBrains/IdeaIC2023.3/extResources/48b8f268_assembly-1.1.2.xsd" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="21" project-jdk-type="JavaSDK" />
 </project>

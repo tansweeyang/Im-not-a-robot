@@ -47,7 +47,9 @@ https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&
    ```
    
 5. Package the application: Generate a JAR file:
-   ```mvn clean package```
+   ```bash
+   mvn clean package
+   ```
 
 6. Run the application: Execute the main class with the following command:
    ```bash
@@ -56,7 +58,7 @@ https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&
 
 ## 📤 Deployment
 1. Prepare the JAR:
-   - Run ```mvn clean deploy``` to generate a application zip file ready to be deployed.
+   - Run ```mvn clean package``` to generate a application zip file ready to be deployed.
    - A zipped application folder ```bot.zip``` will be created in your desktop.
 2. Join the Discloud Server:
    - https://discord.gg/discloud-584490943034425391.
