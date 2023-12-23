@@ -30,9 +30,3 @@ jobs:
 
       - name: Build and test with Maven
         run: mvn clean package
-
-      - name: Upload packaged artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: bot
-          path: /home/runner/work/Im-not-a-robot/Im-not-a-robot/${env.USERPROFILE}/Desktop
