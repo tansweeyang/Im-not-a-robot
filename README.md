@@ -59,7 +59,7 @@ https://discord.com/oauth2/authorize?client_id=978649404816916521&permissions=8&
    <version>Released Version</version>
    ```
 2. Generate zip folder to deploy:
-   - Run the following command to generate a application zip file ready to be deployed.
+   - Run the following command to generate an application zip file ready to be deployed.
      ```bash
      mvn clean package
      ```
