@@ -35,4 +35,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: bot.zip
-          path: ${{ env.USERPROFILE }}/Desktop/bot.zip
+          path: /home/runner/work/Im-not-a-robot/Im-not-a-robot/${env.USERPROFILE}/Desktop
