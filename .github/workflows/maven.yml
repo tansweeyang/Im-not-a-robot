@@ -23,7 +23,7 @@ jobs:
           cache: maven  # Cache Maven dependencies for faster builds
 
       - name: Build and test with Maven
-        run: mvn clean package
+        run: mvn clean test
 
       - name: Upload packaged artifact
         uses: actions/upload-artifact@v3
